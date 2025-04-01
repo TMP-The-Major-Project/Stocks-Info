@@ -1,5 +1,5 @@
 services:
-  api:
+  stocks_info:
     container_name: stocks_info
     build: .
     image: stocks_info:latest
