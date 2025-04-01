@@ -1,98 +1,125 @@
-# Stock Market Information Website
+# Stock Market Information & Strategies
 
-A modern, responsive website for stock market information and analysis, built with Go (Fiber) for the backend and vanilla HTML/CSS/JavaScript for the frontend.
+A comprehensive web application for stock market information, analysis, and investment planning.
 
 ## Features
 
-- **Real-time Stock Data**: Display current stock prices, changes, and percentage movements
-- **Watchlist Management**: Add and track your favorite stocks
-- **Returns Calculator**: Calculate potential returns on investments with compound interest
-- **Market Analysis**: Access detailed market insights and trends
-- **IPO Calendar**: Stay updated with upcoming Initial Public Offerings
-- **Futures & Options**: Track F&O market data
-- **SIP/Mutual Funds**: Explore systematic investment plans and mutual fund options
-- **Team Information**: Learn about our expert team members
-- **Contact Form**: Get in touch with our support team
+### 1. Watchlist
+- Real-time stock price tracking
+- Add/remove stocks from watchlist
+- Price alerts and notifications
+- Interactive stock cards with live updates
+- Persistent storage using localStorage
+
+### 2. IPO Information
+- IPO calendar and upcoming listings
+- Detailed IPO information
+- Subscription status tracking
+- Company financials and analysis
+
+### 3. Returns Calculator
+- Investment returns projection
+- Portfolio planning tools
+- Goal-based investment planning
+- Detailed financial analysis
+
+### 4. Market Analysis
+- Technical analysis tools
+- Market insights and trends
+- Stock performance metrics
+- Historical data analysis
+
+### 5. Educational Resources
+- Learning guides and tutorials
+- Video tutorials
+- Market analysis reports
+- Trading strategies
 
 ## Project Structure
 
 ```
-Stocks/
-├── main.go              # Go backend server
-├── README.md           # Project documentation
-└── src/                # Frontend files
-    ├── index.html      # Main landing page
-    ├── css/            # Stylesheets
-    │   └── style.css   # Main styles
-    ├── js/             # JavaScript files
-    │   └── main.js     # Main JavaScript
-    └── pages/          # Additional pages
-        ├── about.html
-        ├── contact.html
-        ├── team.html
-        └── login.html
+src/
+├── css/
+│   └── style.css
+├── js/
+│   ├── main.js
+│   └── auth.js
+├── pages/
+│   ├── watchlist.html
+│   ├── ipo.html
+│   ├── returns-calculator.html
+│   ├── analysis.html
+│   ├── resources.html
+│   ├── about.html
+│   ├── contact.html
+│   ├── team.html
+│   └── login.html
+└── index.html
 ```
 
-## Tech Stack
+## Technologies Used
 
-- **Backend**: Go with Fiber framework
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Styling**: Custom CSS with modern design principles
-- **Icons**: Font Awesome
-- **Fonts**: Google Fonts (Poppins)
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- Font Awesome Icons
+- Google Fonts (Poppins)
 
 ## Setup Instructions
 
-1. **Prerequisites**
-   - Go 1.16 or higher
-   - Git
+1. Clone the repository:
+```bash
+git clone <repository-url>
+```
 
-2. **Installation**
-   ```bash
-   # Clone the repository
-   git clone <repository-url>
-   cd Stocks
+2. Navigate to the project directory:
+```bash
+cd stock-market-info
+```
 
-   # Install Go dependencies
-   go mod tidy
+3. Open `index.html` in your web browser or use a local server:
+```bash
+# Using Python
+python -m http.server 8080
 
-   # Run the server
-   go run main.go
-   ```
+# Using Node.js
+npx serve
+```
 
-3. **Access the Website**
-   - Open your browser and navigate to `http://localhost:3000`
-   - The website will be served from the `src` directory
-
-## API Endpoints
-
-- `GET /api/stocks` - Get current stock data
-- `GET /api/watchlist` - Get user's watchlist
-- `POST /api/watchlist` - Add stock to watchlist
-- `POST /api/calculate-returns` - Calculate investment returns
+4. Access the application at `http://localhost:8080`
 
 ## Features in Detail
 
-### 1. Stock Data Display
-- Real-time stock prices
-- Price changes and percentage movements
-- Interactive stock cards with hover effects
+### Watchlist
+- Add stocks from a predefined list
+- Real-time price updates every 5 seconds
+- Price change indicators (green for positive, red for negative)
+- Remove stocks from watchlist
+- Persistent storage across sessions
 
-### 2. Watchlist
-- Add/remove stocks from watchlist
-- Persistent storage of favorite stocks
-- Quick access to important stock information
+### IPO Information
+- View upcoming IPOs
+- Track subscription status
+- Access company details
+- Historical IPO performance
 
-### 3. Returns Calculator
-- Calculate future value of investments
-- Consider initial investment and monthly contributions
-- Account for compound interest
-- Visual representation of potential returns
+### Returns Calculator
+- Calculate investment returns
+- Plan portfolio allocation
+- Set investment goals
+- View detailed projections
 
-### 4. Market Analysis
-- Technical analysis tools
-- Market trends and patterns
-- Historical data visualization
+### Market Analysis
+- Technical indicators
+- Market trends
+- Stock performance metrics
+- Historical data analysis
+
+### Educational Resources
+- Comprehensive guides
+- Video tutorials
+- Market analysis
+- Trading strategies
 
 ## Contributing
 
@@ -106,6 +133,8 @@ Stocks/
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Contact
+## Acknowledgments
 
-For any queries or support, please reach out through the contact form on the website or email us at support@stockmarket.com 
+- Font Awesome for icons
+- Google Fonts for typography
+- All contributors and maintainers 
