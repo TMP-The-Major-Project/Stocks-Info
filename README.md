@@ -29,11 +29,6 @@ A comprehensive web application for stock market information, analysis, and inve
 - Stock performance metrics
 - Historical data analysis
 
-### 5. Educational Resources
-- Learning guides and tutorials
-- Video tutorials
-- Market analysis reports
-- Trading strategies
 
 ## Project Structure
 
@@ -64,6 +59,7 @@ src/
 - JavaScript (ES6+)
 - Font Awesome Icons
 - Google Fonts (Poppins)
+- Go Backend (Fiber)
 
 ## Setup Instructions
 
@@ -79,14 +75,12 @@ cd stock-market-info
 
 3. Open `index.html` in your web browser or use a local server:
 ```bash
-# Using Python
-python -m http.server 8080
+# Using make
+sudo make
 
-# Using Node.js
-npx serve
 ```
 
-4. Access the application at `http://localhost:8080`
+4. Access the application at `http://localhost:3000`
 
 ## Features in Detail
 
