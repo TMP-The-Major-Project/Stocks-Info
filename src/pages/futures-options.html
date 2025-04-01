@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futures & Options Guide - Stock Market</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            padding-top: 80px;
+        }
+
+        .container {
+            min-height: calc(100vh - 80px - 60px);
+            padding: 2rem;
+        }
+
+        .futures-header {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .futures-header h1 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .futures-header p {
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .content-section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-section li {
+            color: #666;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .content-section li:before {
+            content: "•";
+            color: #3498db;
+            position: absolute;
+            left: 0;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .info-box h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box p {
+            color: #666;
+            margin: 0;
+        }
+
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .key-point {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .key-point i {
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+
+        .key-point span {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>StockMarket</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="watchlist.html">Watchlist</a>
+                <a href="resources.html">Resources</a>
+                <a href="returns-calculator.html">Returns Calculator</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="team.html">Team</a>
+                <a href="login.html" class="login-btn">Login</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="futures-header">
+                <h1>Futures & Options Guide</h1>
+                <p>Learn about futures and options trading, their types, strategies, and risk management techniques.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Understanding Futures & Options</h2>
+                <p>Futures and Options (F&O) are derivative instruments that derive their value from an underlying asset like stocks, commodities, or indices.</p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>Derivative Instruments</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-balance-scale"></i>
+                        <span>Leverage Trading</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Risk Management</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Types of Derivatives</h2>
+                <div class="info-box">
+                    <h4>Futures Contracts</h4>
+                    <p>Agreements to buy or sell an asset at a predetermined price and date in the future.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Options Contracts</h4>
+                    <p>Give the right but not the obligation to buy (call) or sell (put) an asset at a specific price.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Key Components</h2>
+                <ul>
+                    <li><strong>Strike Price:</strong> The price at which the contract can be exercised</li>
+                    <li><strong>Premium:</strong> The price paid for the option contract</li>
+                    <li><strong>Expiration Date:</strong> The last day to exercise the contract</li>
+                    <li><strong>Lot Size:</strong> The minimum quantity that can be traded</li>
+                    <li><strong>Underlying Asset:</strong> The asset on which the derivative is based</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Popular Trading Strategies</h2>
+                <div class="info-box">
+                    <h4>Hedging</h4>
+                    <p>Using derivatives to protect against price movements in the underlying asset.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Speculation</h4>
+                    <p>Trading based on market predictions to profit from price movements.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Arbitrage</h4>
+                    <p>Taking advantage of price differences between markets.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Risk Management</h2>
+                <ul>
+                    <li>Set stop-loss orders</li>
+                    <li>Use position sizing</li>
+                    <li>Diversify your portfolio</li>
+                    <li>Monitor market conditions</li>
+                    <li>Understand leverage risks</li>
+                    <li>Keep track of margin requirements</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Getting Started</h2>
+                <ol>
+                    <li>Learn the basics of derivatives</li>
+                    <li>Understand your risk tolerance</li>
+                    <li>Open a trading account</li>
+                    <li>Start with small positions</li>
+                    <li>Practice with paper trading</li>
+                    <li>Develop a trading strategy</li>
+                    <li>Monitor and manage positions</li>
+                </ol>
+            </div>
+
+            <div class="content-section">
+                <h2>Important Tips</h2>
+                <div class="info-box">
+                    <h4>Education</h4>
+                    <p>Continuously learn about market dynamics and trading strategies.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Risk Control</h4>
+                    <p>Never risk more than you can afford to lose. Use proper risk management techniques.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Market Analysis</h4>
+                    <p>Stay informed about market conditions and analyze trends carefully.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Stock Market Info & Strategies.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html> 

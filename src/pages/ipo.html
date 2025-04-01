@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPO Information - Stock Market</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        .nav-links a.active {
+            color: #3498db;
+        }
+
+        .login-btn {
+            padding: 0.5rem 1rem;
+            background: #3498db;
+            color: white !important;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #2980b9;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .navbar .logo h1 {
+                font-size: 1.2rem;
+            }
+        }
+
+        .ipo-section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .ipo-section h2 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .ipo-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .ipo-table th {
+            background: #2c3e50;
+            color: #fff;
+            font-weight: 500;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .ipo-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .ipo-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .ipo-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .positive {
+            color: #28a745;
+            font-weight: 500;
+        }
+
+        .negative {
+            color: #dc3545;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            margin-top: 80px;
+        }
+
+        main h1 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .ipo-info {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .ipo-info p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .ipo-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .ipo-section {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>StockMarket</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="watchlist.html">Watchlist</a>
+                <a href="ipo.html" class="active">IPO</a>
+                <a href="returns-calculator.html">Returns Calculator</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="team.html">Team</a>
+                <a href="login.html" class="login-btn">Login</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>IPO Information</h1>
+
+        <div class="ipo-info">
+            <p>Initial Public Offerings (IPOs) represent a company's debut on the stock market. Here's a curated list of recent IPOs and their performance, helping you make informed investment decisions.</p>
+        </div>
+        
+        <section class="ipo-section">
+            <h2>Top Performing IPOs</h2>
+            <table class="ipo-table">
+                <thead>
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Issue Price</th>
+                        <th>Listing Price</th>
+                        <th>Current Price</th>
+                        <th>Returns</th>
+                        <th>Listing Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TechCorp Solutions</td>
+                        <td>₹450</td>
+                        <td>₹750</td>
+                        <td>₹890</td>
+                        <td class="positive">+97.78%</td>
+                        <td>Jan 15, 2024</td>
+                    </tr>
+                    <tr>
+                        <td>Green Energy Ltd</td>
+                        <td>₹300</td>
+                        <td>₹520</td>
+                        <td>₹580</td>
+                        <td class="positive">+93.33%</td>
+                        <td>Feb 1, 2024</td>
+                    </tr>
+                    <tr>
+                        <td>HealthTech Inc</td>
+                        <td>₹600</td>
+                        <td>₹890</td>
+                        <td>₹1050</td>
+                        <td class="positive">+75.00%</td>
+                        <td>Feb 10, 2024</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="ipo-section">
+            <h2>Underperforming IPOs</h2>
+            <table class="ipo-table">
+                <thead>
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Issue Price</th>
+                        <th>Listing Price</th>
+                        <th>Current Price</th>
+                        <th>Returns</th>
+                        <th>Listing Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Retail Chain Co</td>
+                        <td>₹550</td>
+                        <td>₹480</td>
+                        <td>₹320</td>
+                        <td class="negative">-41.82%</td>
+                        <td>Jan 5, 2024</td>
+                    </tr>
+                    <tr>
+                        <td>Fashion Brands Ltd</td>
+                        <td>₹400</td>
+                        <td>₹380</td>
+                        <td>₹290</td>
+                        <td class="negative">-27.50%</td>
+                        <td>Jan 20, 2024</td>
+                    </tr>
+                    <tr>
+                        <td>Auto Parts Corp</td>
+                        <td>₹750</td>
+                        <td>₹710</td>
+                        <td>₹620</td>
+                        <td class="negative">-17.33%</td>
+                        <td>Feb 5, 2024</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Stock Market Info & Strategies.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html> 

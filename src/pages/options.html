@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options Trading Guide - Stock Market</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            padding-top: 80px;
+        }
+
+        .container {
+            min-height: calc(100vh - 80px - 60px);
+            padding: 2rem;
+        }
+
+        .options-header {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .options-header h1 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .options-header p {
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .content-section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-section li {
+            color: #666;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .content-section li:before {
+            content: "•";
+            color: #3498db;
+            position: absolute;
+            left: 0;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .info-box h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box p {
+            color: #666;
+            margin: 0;
+        }
+
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .key-point {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .key-point i {
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+
+        .key-point span {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>StockMarket</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="watchlist.html">Watchlist</a>
+                <a href="resources.html">Resources</a>
+                <a href="returns-calculator.html">Returns Calculator</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="team.html">Team</a>
+                <a href="login.html" class="login-btn">Login</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="options-header">
+                <h1>Options Trading Guide</h1>
+                <p>Learn about options trading, its types, strategies, and important concepts to make informed investment decisions.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>What are Options?</h2>
+                <p>Options are financial derivatives that give the buyer the right, but not the obligation, to buy or sell an underlying asset at a predetermined price within a specified time period.</p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Right to buy or sell</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-calendar"></i>
+                        <span>Time-bound contracts</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <span>Premium payment required</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Types of Options</h2>
+                <div class="info-box">
+                    <h4>Call Options</h4>
+                    <p>Gives the holder the right to buy the underlying asset at the strike price before the expiration date.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Put Options</h4>
+                    <p>Gives the holder the right to sell the underlying asset at the strike price before the expiration date.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Key Terms in Options Trading</h2>
+                <ul>
+                    <li><strong>Strike Price:</strong> The price at which the option can be exercised</li>
+                    <li><strong>Premium:</strong> The price paid to buy the option</li>
+                    <li><strong>Expiration Date:</strong> The last day to exercise the option</li>
+                    <li><strong>In-the-Money (ITM):</strong> When the option has intrinsic value</li>
+                    <li><strong>Out-of-the-Money (OTM):</strong> When the option has no intrinsic value</li>
+                    <li><strong>At-the-Money (ATM):</strong> When the strike price equals the current market price</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Popular Options Strategies</h2>
+                <ul>
+                    <li><strong>Covered Call:</strong> Selling call options against owned stock</li>
+                    <li><strong>Protective Put:</strong> Buying put options to protect against stock price decline</li>
+                    <li><strong>Straddle:</strong> Buying both call and put options at the same strike price</li>
+                    <li><strong>Iron Condor:</strong> A combination of bull put spread and bear call spread</li>
+                    <li><strong>Butterfly Spread:</strong> A strategy with limited risk and limited profit potential</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Risks and Considerations</h2>
+                <ul>
+                    <li>Time decay affects option value</li>
+                    <li>Options can expire worthless</li>
+                    <li>Leverage can amplify both gains and losses</li>
+                    <li>Complex strategies require thorough understanding</li>
+                    <li>Market volatility impacts option prices</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Getting Started with Options Trading</h2>
+                <ol>
+                    <li>Learn the basics of options trading</li>
+                    <li>Understand your risk tolerance</li>
+                    <li>Start with simple strategies</li>
+                    <li>Practice with paper trading</li>
+                    <li>Use proper position sizing</li>
+                    <li>Monitor and manage your positions</li>
+                </ol>
+            </div>
+
+            <div class="content-section">
+                <h2>Important Tips</h2>
+                <div class="info-box">
+                    <h4>Risk Management</h4>
+                    <p>Never risk more than you can afford to lose. Use stop-loss orders and position sizing to manage risk.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Education</h4>
+                    <p>Continuously educate yourself about options trading strategies and market conditions.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Practice</h4>
+                    <p>Start with paper trading to practice strategies without risking real money.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Stock Market Info & Strategies.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html> 

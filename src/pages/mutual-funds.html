@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutual Funds Guide - Stock Market</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            padding-top: 80px;
+        }
+
+        .container {
+            min-height: calc(100vh - 80px - 60px);
+            padding: 2rem;
+        }
+
+        .funds-header {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .funds-header h1 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .funds-header p {
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .content-section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-section li {
+            color: #666;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .content-section li:before {
+            content: "•";
+            color: #3498db;
+            position: absolute;
+            left: 0;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .info-box h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box p {
+            color: #666;
+            margin: 0;
+        }
+
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .key-point {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .key-point i {
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+
+        .key-point span {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>StockMarket</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="watchlist.html">Watchlist</a>
+                <a href="resources.html">Resources</a>
+                <a href="returns-calculator.html">Returns Calculator</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="team.html">Team</a>
+                <a href="login.html" class="login-btn">Login</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="funds-header">
+                <h1>Mutual Funds Guide</h1>
+                <p>Learn about mutual funds, their types, benefits, and how to invest wisely in them.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>What are Mutual Funds?</h2>
+                <p>Mutual funds are investment vehicles that pool money from multiple investors to invest in a diversified portfolio of stocks, bonds, or other securities.</p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <i class="fas fa-users"></i>
+                        <span>Pooled Investment</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Professional Management</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-balance-scale"></i>
+                        <span>Diversification</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Types of Mutual Funds</h2>
+                <div class="info-box">
+                    <h4>Equity Funds</h4>
+                    <p>Invest primarily in stocks, offering higher potential returns but with higher risk.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Debt Funds</h4>
+                    <p>Invest in fixed-income securities like bonds, offering stable returns with lower risk.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Balanced Funds</h4>
+                    <p>Invest in both stocks and bonds, providing a mix of growth and stability.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Index Funds</h4>
+                    <p>Track specific market indices, offering low-cost passive investment options.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Benefits of Mutual Funds</h2>
+                <ul>
+                    <li><strong>Diversification:</strong> Reduces risk by investing in multiple securities</li>
+                    <li><strong>Professional Management:</strong> Expert fund managers handle investment decisions</li>
+                    <li><strong>Liquidity:</strong> Easy to buy and sell fund units</li>
+                    <li><strong>Affordability:</strong> Start investing with small amounts</li>
+                    <li><strong>Tax Efficiency:</strong> Certain funds offer tax benefits</li>
+                    <li><strong>Transparency:</strong> Regular updates on portfolio and performance</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>How to Choose Mutual Funds</h2>
+                <ul>
+                    <li>Consider your investment goals and time horizon</li>
+                    <li>Evaluate fund performance and track record</li>
+                    <li>Check expense ratios and other costs</li>
+                    <li>Understand the fund's investment strategy</li>
+                    <li>Review the fund manager's experience</li>
+                    <li>Assess risk level and volatility</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Investment Strategies</h2>
+                <div class="info-box">
+                    <h4>Systematic Investment Plan (SIP)</h4>
+                    <p>Invest fixed amounts regularly to benefit from rupee cost averaging.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Lump Sum Investment</h4>
+                    <p>Invest a large amount at once, suitable when you have surplus funds.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Important Considerations</h2>
+                <ul>
+                    <li>Understand your risk tolerance</li>
+                    <li>Consider investment time horizon</li>
+                    <li>Review fund expenses and charges</li>
+                    <li>Monitor fund performance regularly</li>
+                    <li>Stay informed about market conditions</li>
+                    <li>Diversify across different fund types</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Getting Started</h2>
+                <ol>
+                    <li>Set your investment goals</li>
+                    <li>Determine your risk profile</li>
+                    <li>Research different mutual funds</li>
+                    <li>Choose your investment strategy</li>
+                    <li>Open a mutual fund account</li>
+                    <li>Start investing through SIP or lump sum</li>
+                    <li>Monitor and review your investments</li>
+                </ol>
+            </div>
+
+            <div class="content-section">
+                <h2>Important Tips</h2>
+                <div class="info-box">
+                    <h4>Research</h4>
+                    <p>Thoroughly research funds before investing. Read offer documents and past performance.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Patience</h4>
+                    <p>Stay invested for the long term to benefit from compound interest.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Regular Review</h4>
+                    <p>Monitor your investments and rebalance portfolio as needed.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Stock Market Info & Strategies.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html> 

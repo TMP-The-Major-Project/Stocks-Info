@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Stock Market</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            padding-top: 80px;
+        }
+
+        .container {
+            min-height: calc(100vh - 80px - 60px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .about-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>StockMarket</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="watchlist.html">Watchlist</a>
+                <a href="resources.html">Resources</a>
+                <a href="returns-calculator.html">Returns Calculator</a>
+                <a href="about.html" class="active">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="team.html">Team</a>
+                <a href="login.html" class="login-btn">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="about-section">
+                <h2>About Us</h2>
+                <p>Welcome to StockMarket, your trusted platform for stock market information and investment strategies. We are dedicated to providing you with comprehensive tools and insights to make informed investment decisions.</p>
+                
+                <p>Our platform offers a wide range of features designed to help both beginners and experienced investors:</p>
+                <ul>
+                    <li>Real-time stock tracking and watchlist management</li>
+                    <li>IPO calendar and information</li>
+                    <li>Investment returns calculator</li>
+                    <li>Market analysis and trends</li>
+                </ul>
+
+                <p>Our mission is to democratize access to stock market information and tools, making it easier for everyone to participate in the financial markets. We believe in providing accurate, timely, and user-friendly solutions to help you achieve your investment goals.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Stock Market Info & Strategies.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html> 

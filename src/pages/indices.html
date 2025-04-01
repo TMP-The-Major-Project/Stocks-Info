@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Indices Guide - Stock Market</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            padding-top: 80px;
+        }
+
+        .container {
+            min-height: calc(100vh - 80px - 60px);
+            padding: 2rem;
+        }
+
+        .indices-header {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .indices-header h1 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .indices-header p {
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .content-section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-section li {
+            color: #666;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .content-section li:before {
+            content: "•";
+            color: #3498db;
+            position: absolute;
+            left: 0;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .info-box h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box p {
+            color: #666;
+            margin: 0;
+        }
+
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .key-point {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .key-point i {
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+
+        .key-point span {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>StockMarket</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="watchlist.html">Watchlist</a>
+                <a href="resources.html">Resources</a>
+                <a href="returns-calculator.html">Returns Calculator</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="team.html">Team</a>
+                <a href="login.html" class="login-btn">Login</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="indices-header">
+                <h1>Market Indices Guide</h1>
+                <p>Learn about stock market indices, their types, importance, and how they reflect market performance.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Understanding Market Indices</h2>
+                <p>Market indices are statistical measures that track the performance of a specific group of stocks, representing a particular market or sector.</p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Market Performance</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-balance-scale"></i>
+                        <span>Benchmark Tracking</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Market Sentiment</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Major Market Indices</h2>
+                <div class="info-box">
+                    <h4>S&P 500</h4>
+                    <p>Measures the performance of 500 large companies listed on US stock exchanges.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Dow Jones Industrial Average</h4>
+                    <p>Tracks 30 large, publicly-owned companies trading on the NYSE and NASDAQ.</p>
+                </div>
+                <div class="info-box">
+                    <h4>NASDAQ Composite</h4>
+                    <p>Includes all stocks listed on the NASDAQ stock market.</p>
+                </div>
+                <div class="info-box">
+                    <h4>FTSE 100</h4>
+                    <p>Index of the 100 largest companies listed on the London Stock Exchange.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Types of Indices</h2>
+                <ul>
+                    <li><strong>Broad Market Indices:</strong> Track overall market performance</li>
+                    <li><strong>Sector Indices:</strong> Focus on specific industry sectors</li>
+                    <li><strong>Market Cap Indices:</strong> Based on company size</li>
+                    <li><strong>Global Indices:</strong> Track international markets</li>
+                    <li><strong>Custom Indices:</strong> Created for specific investment strategies</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Importance of Market Indices</h2>
+                <div class="info-box">
+                    <h4>Market Benchmark</h4>
+                    <p>Provide a standard against which to measure investment performance.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Market Sentiment</h4>
+                    <p>Indicate overall market direction and investor confidence.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Investment Tools</h4>
+                    <p>Used for passive investing through index funds and ETFs.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>How Indices Work</h2>
+                <ul>
+                    <li>Selection of stocks based on specific criteria</li>
+                    <li>Weighting of components (market cap, price, etc.)</li>
+                    <li>Regular rebalancing and maintenance</li>
+                    <li>Calculation methodology</li>
+                    <li>Base period and value</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Using Indices for Investment</h2>
+                <div class="info-box">
+                    <h4>Index Funds</h4>
+                    <p>Mutual funds that track specific market indices.</p>
+                </div>
+                <div class="info-box">
+                    <h4>ETFs</h4>
+                    <p>Exchange-traded funds that mirror index performance.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Portfolio Diversification</h4>
+                    <p>Using indices to achieve broad market exposure.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Important Considerations</h2>
+                <ul>
+                    <li>Understand index methodology</li>
+                    <li>Consider tracking error</li>
+                    <li>Evaluate index composition</li>
+                    <li>Monitor rebalancing frequency</li>
+                    <li>Assess market coverage</li>
+                    <li>Review historical performance</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Getting Started</h2>
+                <ol>
+                    <li>Learn about different indices</li>
+                    <li>Understand index methodology</li>
+                    <li>Choose appropriate indices</li>
+                    <li>Consider index funds or ETFs</li>
+                    <li>Monitor index performance</li>
+                    <li>Rebalance portfolio as needed</li>
+                </ol>
+            </div>
+
+            <div class="content-section">
+                <h2>Important Tips</h2>
+                <div class="info-box">
+                    <h4>Research</h4>
+                    <p>Thoroughly understand the indices you're interested in.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Diversification</h4>
+                    <p>Consider multiple indices for better portfolio diversification.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Monitoring</h4>
+                    <p>Regularly track index performance and market conditions.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Stock Market Info & Strategies.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html> 

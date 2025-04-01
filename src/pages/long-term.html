@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long-Term Investment Plans - Stock Market</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            padding-top: 80px;
+        }
+
+        .container {
+            min-height: calc(100vh - 80px - 60px);
+            padding: 2rem;
+        }
+
+        .plans-header {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .plans-header h1 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .plans-header p {
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .content-section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-section li {
+            color: #666;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .content-section li:before {
+            content: "•";
+            color: #3498db;
+            position: absolute;
+            left: 0;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .info-box h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box p {
+            color: #666;
+            margin: 0;
+        }
+
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .key-point {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .key-point i {
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+
+        .key-point span {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>StockMarket</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="watchlist.html">Watchlist</a>
+                <a href="resources.html">Resources</a>
+                <a href="returns-calculator.html">Returns Calculator</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="team.html">Team</a>
+                <a href="login.html" class="login-btn">Login</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="plans-header">
+                <h1>Long-Term Investment Plans</h1>
+                <p>Discover effective strategies and plans for long-term wealth creation and financial security.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Understanding Long-Term Investing</h2>
+                <p>Long-term investing involves holding investments for an extended period, typically 5-10 years or more, to benefit from compound interest and market growth.</p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <i class="fas fa-clock"></i>
+                        <span>Time Horizon: 5+ Years</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Compound Growth</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Risk Management</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Popular Long-Term Investment Options</h2>
+                <div class="info-box">
+                    <h4>Stocks</h4>
+                    <p>Invest in quality companies with strong fundamentals and growth potential.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Mutual Funds</h4>
+                    <p>Diversified investment through professionally managed funds.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Real Estate</h4>
+                    <p>Property investment for long-term appreciation and rental income.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Fixed Deposits</h4>
+                    <p>Safe investment with guaranteed returns over a fixed period.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Benefits of Long-Term Investing</h2>
+                <ul>
+                    <li><strong>Compound Interest:</strong> Earnings on earnings over time</li>
+                    <li><strong>Tax Efficiency:</strong> Lower tax rates on long-term gains</li>
+                    <li><strong>Market Volatility:</strong> Better ability to ride out market fluctuations</li>
+                    <li><strong>Cost Efficiency:</strong> Lower transaction costs</li>
+                    <li><strong>Wealth Creation:</strong> Potential for significant wealth accumulation</li>
+                    <li><strong>Financial Security:</strong> Building a secure financial future</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Investment Strategies</h2>
+                <div class="info-box">
+                    <h4>Buy and Hold</h4>
+                    <p>Purchase quality investments and hold them for the long term.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Dollar-Cost Averaging</h4>
+                    <p>Invest fixed amounts regularly regardless of market conditions.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Value Investing</h4>
+                    <p>Focus on undervalued companies with strong fundamentals.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Portfolio Allocation</h2>
+                <ul>
+                    <li>Determine your risk tolerance</li>
+                    <li>Diversify across asset classes</li>
+                    <li>Consider your age and financial goals</li>
+                    <li>Regular portfolio rebalancing</li>
+                    <li>Monitor and adjust as needed</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Getting Started</h2>
+                <ol>
+                    <li>Set clear financial goals</li>
+                    <li>Create an emergency fund</li>
+                    <li>Pay off high-interest debt</li>
+                    <li>Start investing early</li>
+                    <li>Choose appropriate investments</li>
+                    <li>Stay disciplined and patient</li>
+                    <li>Regular review and adjustment</li>
+                </ol>
+            </div>
+
+            <div class="content-section">
+                <h2>Important Tips</h2>
+                <div class="info-box">
+                    <h4>Patience</h4>
+                    <p>Stay committed to your long-term investment strategy despite market fluctuations.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Diversification</h4>
+                    <p>Spread your investments across different asset classes to manage risk.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Regular Review</h4>
+                    <p>Monitor your investments and adjust your strategy as needed.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Stock Market Info & Strategies.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html> 

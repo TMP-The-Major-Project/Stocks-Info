@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short-Term Investment Plans - Stock Market</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            padding-top: 80px;
+        }
+
+        .container {
+            min-height: calc(100vh - 80px - 60px);
+            padding: 2rem;
+        }
+
+        .plans-header {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .plans-header h1 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .plans-header p {
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .content-section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-section li {
+            color: #666;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .content-section li:before {
+            content: "•";
+            color: #3498db;
+            position: absolute;
+            left: 0;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .info-box h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box p {
+            color: #666;
+            margin: 0;
+        }
+
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .key-point {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .key-point i {
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+
+        .key-point span {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>StockMarket</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="watchlist.html">Watchlist</a>
+                <a href="resources.html">Resources</a>
+                <a href="returns-calculator.html">Returns Calculator</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="team.html">Team</a>
+                <a href="login.html" class="login-btn">Login</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="plans-header">
+                <h1>Short-Term Investment Plans</h1>
+                <p>Explore strategies and options for short-term investments to meet immediate financial goals.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Understanding Short-Term Investing</h2>
+                <p>Short-term investing typically involves holding investments for less than 3 years, focusing on quick returns and liquidity.</p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <i class="fas fa-clock"></i>
+                        <span>Time Horizon: < 3 Years</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Quick Returns</span>
+                    </div>
+                    <div class="key-point">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>High Liquidity</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Popular Short-Term Investment Options</h2>
+                <div class="info-box">
+                    <h4>Savings Accounts</h4>
+                    <p>Safe and liquid option with minimal risk and easy access to funds.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Fixed Deposits</h4>
+                    <p>Guaranteed returns with flexible tenure options.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Money Market Funds</h4>
+                    <p>Low-risk mutual funds investing in short-term debt instruments.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Treasury Bills</h4>
+                    <p>Government-backed securities with short maturity periods.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Benefits of Short-Term Investing</h2>
+                <ul>
+                    <li><strong>Liquidity:</strong> Quick access to funds when needed</li>
+                    <li><strong>Flexibility:</strong> Easy to adjust investment strategy</li>
+                    <li><strong>Lower Risk:</strong> Reduced exposure to market volatility</li>
+                    <li><strong>Quick Returns:</strong> Potential for faster profit realization</li>
+                    <li><strong>Emergency Fund:</strong> Suitable for emergency savings</li>
+                    <li><strong>Goal Planning:</strong> Ideal for short-term financial goals</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Investment Strategies</h2>
+                <div class="info-box">
+                    <h4>Ladder Strategy</h4>
+                    <p>Invest in multiple fixed deposits with different maturity dates.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Money Market Funds</h4>
+                    <p>Invest in low-risk mutual funds for better returns than savings accounts.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Trading</h4>
+                    <p>Active trading in stocks or other securities for quick profits.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Risk Management</h2>
+                <ul>
+                    <li>Set clear investment goals</li>
+                    <li>Diversify investments</li>
+                    <li>Monitor market conditions</li>
+                    <li>Use stop-loss orders</li>
+                    <li>Maintain emergency funds</li>
+                    <li>Regular portfolio review</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Getting Started</h2>
+                <ol>
+                    <li>Identify your short-term goals</li>
+                    <li>Assess your risk tolerance</li>
+                    <li>Research investment options</li>
+                    <li>Create an investment plan</li>
+                    <li>Start with small amounts</li>
+                    <li>Monitor performance</li>
+                    <li>Adjust strategy as needed</li>
+                </ol>
+            </div>
+
+            <div class="content-section">
+                <h2>Important Tips</h2>
+                <div class="info-box">
+                    <h4>Research</h4>
+                    <p>Thoroughly research investment options before committing funds.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Diversification</h4>
+                    <p>Spread investments across different options to manage risk.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Monitoring</h4>
+                    <p>Regularly track performance and market conditions.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Stock Market Info & Strategies.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html> 
