@@ -3,18 +3,19 @@
 all: restart
 
 build:
-    docker-compose build --no-cache
+	docker-compose build --no-cache
 
 up:
-    docker-compose up -d
+	docker-compose up -d
 
 down:
-    docker-compose down --remove-orphans
+	docker-compose down --remove-orphans
 
 restart: down build up
 
 logs:
-    docker-compose logs -f
+	docker-compose logs -f
 
 ps:
-    docker ps
+	docker ps
+
