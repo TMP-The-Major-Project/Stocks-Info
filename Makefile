@@ -19,4 +19,5 @@ logs:
 ps:
 	docker ps
 
-run: all
+run: 
+	@go run .
