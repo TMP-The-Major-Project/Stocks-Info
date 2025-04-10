@@ -1,13 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Stock Market Information</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-brand">
@@ -29,92 +32,70 @@
                 <form id="loginForm" class="login-form">
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" id="username" name="username" required>
+                        <input type="text" id="username" name="username" required />
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required>
+                        <input type="password" id="password" name="password" required />
                     </div>
                     <div class="form-group">
                         <label class="checkbox-label">
-                            <input type="checkbox" name="remember"> Remember me
+                            <input type="checkbox" name="remember" /> Remember me
                         </label>
                         <a href="#" class="forgot-password">Forgot Password?</a>
                     </div>
                     <button type="submit" class="login-btn">Login</button>
                 </form>
                 <div class="form-footer">
-                    <p>Don't have an account? <a href="register.html">Register here</a></p>
+                    <p>
+                        Don't have an account? <a href="register.html">Register here</a>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="team.html">Team</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Services</h3>
-                <ul>
-                    <li><a href="ipo.html">IPO</a></li>
-                    <li><a href="fo.html">Futures & Options</a></li>
-                    <li><a href="sip.html">SIP/Mutual Funds</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Connect With Us</h3>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Stock Market Info & Strategies.</p>
-        </div>
+        <p>&copy; 2024 Stock Market Info & Strategies.</p>
     </footer>
 
     <script src="../js/auth.js"></script>
     <script>
-        document.getElementById('loginForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const remember = document.querySelector('input[name="remember"]').checked;
+        document
+            .getElementById("loginForm")
+            .addEventListener("submit", async function (e) {
+                e.preventDefault();
 
-            try {
-                const response = await fetch('/api/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ username, password })
-                });
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+                const remember = document.querySelector(
+                    'input[name="remember"]',
+                ).checked;
 
-                const data = await response.json();
+                try {
+                    const response = await fetch("/api/login", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({username, password}),
+                    });
 
-                if (response.ok) {
-                    // Store username in localStorage
-                    localStorage.setItem('username', username);
-                    window.location.href = '../index.html';
-                } else {
-                    alert('Login failed: ' + data.error);
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        // Store username in localStorage
+                        localStorage.setItem("username", username);
+                        window.location.href = "../index.html";
+                    } else {
+                        alert("Login failed: " + data.error);
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
+                    alert("Login failed. Please try again.");
                 }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Login failed. Please try again.');
-            }
-        });
+            });
     </script>
 </body>
-</html> 
+
+</html>

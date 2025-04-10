@@ -19,3 +19,4 @@ logs:
 ps:
 	docker ps
 
+run: all

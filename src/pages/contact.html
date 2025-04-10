@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us - Stock Market</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
     <style>
         body {
             min-height: 100vh;
@@ -117,6 +119,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav class="navbar">
@@ -143,15 +146,15 @@
                 <form class="contact-form" onsubmit="return handleSubmit(event)">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" required />
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required />
                     </div>
                     <div class="form-group">
                         <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
+                        <input type="text" id="subject" name="subject" required />
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
@@ -164,16 +167,16 @@
                     <h3>Other Ways to Reach Us</h3>
                     <p>Email: support@stockmarket.com</p>
                     <p>Phone: +1 (555) 123-4567</p>
-                    <p>Address: 123 Stock Market Street, Financial District, NY 10004</p>
+                    <p>
+                        Address: 123 Stock Market Street, Financial District, NY 10004
+                    </p>
                 </div>
             </div>
         </div>
     </main>
 
     <footer>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Stock Market Info & Strategies.</p>
-        </div>
+        <p>&copy; 2024 Stock Market Info & Strategies.</p>
     </footer>
 
     <script src="../js/auth.js"></script>
@@ -181,10 +184,11 @@
         function handleSubmit(event) {
             event.preventDefault();
             // Here you would typically send the form data to your backend
-            alert('Thank you for your message! We will get back to you soon.');
+            alert("Thank you for your message! We will get back to you soon.");
             event.target.reset();
             return false;
         }
     </script>
 </body>
-</html> 
+
+</html>

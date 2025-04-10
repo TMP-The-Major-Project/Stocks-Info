@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Returns Calculator - Stock Market</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
     <style>
         body {
             min-height: 100vh;
@@ -19,7 +21,8 @@
         }
 
         .container {
-            min-height: calc(100vh - 80px - 60px); /* viewport height - header - footer */
+            min-height: calc(100vh - 80px - 60px);
+            /* viewport height - header - footer */
             display: flex;
             flex-direction: column;
         }
@@ -124,6 +127,7 @@
         }
 
         @media (max-width: 768px) {
+
             .calculator-form,
             .results-section {
                 padding: 1rem;
@@ -136,6 +140,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav class="navbar">
@@ -165,29 +170,35 @@
             <h1>SIP Returns Calculator</h1>
 
             <div class="calculator-info">
-                <p>Calculate your potential returns on Systematic Investment Plans (SIP). Enter your monthly investment amount, investment period, and expected annual return to see how your money could grow over time.</p>
+                <p>
+                    Calculate your potential returns on Systematic Investment Plans
+                    (SIP). Enter your monthly investment amount, investment period, and
+                    expected annual return to see how your money could grow over time.
+                </p>
             </div>
 
             <div class="calculator-form">
                 <div class="form-group">
                     <label for="monthlyInvestment">Monthly Investment (₹)</label>
-                    <input type="number" id="monthlyInvestment" min="500" step="500" value="5000">
+                    <input type="number" id="monthlyInvestment" min="500" step="500" value="5000" />
                 </div>
 
                 <div class="form-group">
                     <label for="investmentPeriod">Investment Period (Years)</label>
-                    <input type="number" id="investmentPeriod" min="1" max="30" value="10">
+                    <input type="number" id="investmentPeriod" min="1" max="30" value="10" />
                 </div>
 
                 <div class="form-group">
                     <label for="expectedReturn">Expected Annual Return (%)</label>
-                    <input type="number" id="expectedReturn" min="1" max="30" value="12">
+                    <input type="number" id="expectedReturn" min="1" max="30" value="12" />
                 </div>
 
-                <button onclick="calculateReturns()" class="calculate-btn">Calculate Returns</button>
+                <button onclick="calculateReturns()" class="calculate-btn">
+                    Calculate Returns
+                </button>
             </div>
 
-            <div id="results" class="results-section" style="display: none;">
+            <div id="results" class="results-section" style="display: none">
                 <h2>Investment Results</h2>
                 <div class="results-grid">
                     <div class="result-card">
@@ -208,58 +219,65 @@
     </main>
 
     <footer>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Stock Market Info & Strategies.</p>
-        </div>
+        <p>&copy; 2024 Stock Market Info & Strategies.</p>
     </footer>
 
     <script src="../js/auth.js"></script>
     <script>
         async function calculateReturns() {
-            const monthlyInvestment = parseFloat(document.getElementById('monthlyInvestment').value);
-            const investmentPeriod = parseInt(document.getElementById('investmentPeriod').value);
-            const expectedReturn = parseFloat(document.getElementById('expectedReturn').value);
+            const monthlyInvestment = parseFloat(
+                document.getElementById("monthlyInvestment").value,
+            );
+            const investmentPeriod = parseInt(
+                document.getElementById("investmentPeriod").value,
+            );
+            const expectedReturn = parseFloat(
+                document.getElementById("expectedReturn").value,
+            );
 
             try {
-                const response = await fetch('/api/calculate-returns', {
-                    method: 'POST',
+                const response = await fetch("/api/calculate-returns", {
+                    method: "POST",
                     headers: {
-                        'Content-Type': 'application/json'
+                        "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
                         initialInvestment: 0,
                         monthlyContribution: monthlyInvestment,
                         years: investmentPeriod,
-                        annualReturn: expectedReturn
-                    })
+                        annualReturn: expectedReturn,
+                    }),
                 });
 
                 const data = await response.json();
-                
+
                 if (response.ok) {
                     displayResults({
                         total_investment: data.totalInvestment,
                         total_returns: data.totalReturns,
-                        total_value: data.finalAmount
+                        total_value: data.finalAmount,
                     });
                 } else {
-                    alert('Error calculating returns: ' + (data.error || 'Unknown error'));
+                    alert(
+                        "Error calculating returns: " + (data.error || "Unknown error"),
+                    );
                 }
             } catch (error) {
-                console.error('Error:', error);
-                alert('Failed to calculate returns. Please try again.');
+                console.error("Error:", error);
+                alert("Failed to calculate returns. Please try again.");
             }
         }
 
         function displayResults(data) {
-            document.getElementById('results').style.display = 'block';
-            document.getElementById('totalInvestment').textContent = 
-                '₹' + data.total_investment.toLocaleString('en-IN');
-            document.getElementById('totalReturns').textContent = 
-                '₹' + data.total_returns.toLocaleString('en-IN');
-            document.getElementById('totalValue').textContent = 
-                '₹' + data.total_value.toLocaleString('en-IN');
+            document.getElementById("results").style.display = "block";
+            document.getElementById("totalInvestment").textContent =
+                "₹" + data.total_investment.toLocaleString("en-IN");
+            document.getElementById("totalReturns").textContent =
+                "₹" + data.total_returns.toLocaleString("en-IN");
+            document.getElementById("totalValue").textContent =
+                "₹" + data.total_value.toLocaleString("en-IN");
         }
     </script>
 </body>
-</html> 
+
+</html>
