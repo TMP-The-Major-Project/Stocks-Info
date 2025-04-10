@@ -1,394 +1,393 @@
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Watchlist - Stock Market</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
 
-        main {
-            flex: 1;
-            padding-top: 80px;
-        }
+      main {
+        flex: 1;
+        padding-top: 80px;
+      }
 
-        .container {
-            min-height: calc(100vh - 80px - 60px);
-            /* viewport height - header - footer */
-            display: flex;
-            flex-direction: column;
-        }
+      .container {
+        min-height: calc(100vh - 80px - 60px);
+        /* viewport height - header - footer */
+        display: flex;
+        flex-direction: column;
+      }
 
+      .watchlist-controls {
+        background: #fff;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        gap: 1rem;
+      }
+
+      .watchlist-controls input {
+        flex: 1;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+      }
+
+      .watchlist-controls input:focus {
+        outline: none;
+        border-color: #3498db;
+      }
+
+      .watchlist-controls button {
+        padding: 0.8rem 1.5rem;
+        background: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .watchlist-controls button:hover {
+        background: #2980b9;
+      }
+
+      .watchlist-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+        flex: 1;
+      }
+
+      .stock-card {
+        background: #fff;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .stock-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .stock-card h3 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+      }
+
+      .stock-card .price {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+      }
+
+      .stock-card .change {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+
+      .stock-card .change.positive {
+        color: #28a745;
+      }
+
+      .stock-card .change.negative {
+        color: #dc3545;
+      }
+
+      .remove-btn {
+        width: 100%;
+        padding: 0.8rem;
+        background: #f8f9fa;
+        color: #dc3545;
+        border: 1px solid #dc3545;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .remove-btn:hover {
+        background: #dc3545;
+        color: white;
+      }
+
+      .watchlist-info {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+
+      .watchlist-info p {
+        color: #666;
+        margin-bottom: 1rem;
+      }
+
+      .empty-watchlist {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 400px;
+        text-align: center;
+        color: #666;
+      }
+
+      .empty-watchlist p {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      @media (max-width: 768px) {
         .watchlist-controls {
-            background: #fff;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            gap: 1rem;
-        }
-
-        .watchlist-controls input {
-            flex: 1;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .watchlist-controls input:focus {
-            outline: none;
-            border-color: #3498db;
+          flex-direction: column;
+          padding: 1rem;
+          margin: 1rem 0;
         }
 
         .watchlist-controls button {
-            padding: 0.8rem 1.5rem;
-            background: #3498db;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .watchlist-controls button:hover {
-            background: #2980b9;
+          width: 100%;
         }
 
         .watchlist-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-            flex: 1;
+          grid-template-columns: 1fr;
         }
+      }
 
-        .stock-card {
-            background: #fff;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
+      .stock-selector {
+        background: #fff;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
 
-        .stock-card:hover {
-            transform: translateY(-5px);
-        }
+      .stock-selector select {
+        flex: 1;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+      }
 
-        .stock-card h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
+      .stock-selector select:focus {
+        outline: none;
+        border-color: #3498db;
+      }
 
-        .stock-card .price {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
+      .stock-selector button {
+        padding: 0.8rem 1.5rem;
+        background: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
 
-        .stock-card .change {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
+      .stock-selector button:hover {
+        background: #2980b9;
+      }
 
-        .stock-card .change.positive {
-            color: #28a745;
-        }
-
-        .stock-card .change.negative {
-            color: #dc3545;
-        }
-
-        .remove-btn {
-            width: 100%;
-            padding: 0.8rem;
-            background: #f8f9fa;
-            color: #dc3545;
-            border: 1px solid #dc3545;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .remove-btn:hover {
-            background: #dc3545;
-            color: white;
-        }
-
-        .watchlist-info {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .watchlist-info p {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .empty-watchlist {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 400px;
-            text-align: center;
-            color: #666;
-        }
-
-        .empty-watchlist p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        @media (max-width: 768px) {
-            .watchlist-controls {
-                flex-direction: column;
-                padding: 1rem;
-                margin: 1rem 0;
-            }
-
-            .watchlist-controls button {
-                width: 100%;
-            }
-
-            .watchlist-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .stock-selector {
-            background: #fff;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .stock-selector select {
-            flex: 1;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .stock-selector select:focus {
-            outline: none;
-            border-color: #3498db;
-        }
-
-        .stock-selector button {
-            padding: 0.8rem 1.5rem;
-            background: #3498db;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .stock-selector button:hover {
-            background: #2980b9;
-        }
-
-        .stock-card .last-update {
-            font-size: 0.8rem;
-            color: #666;
-            margin-top: 0.5rem;
-        }
+      .stock-card .last-update {
+        font-size: 0.8rem;
+        color: #666;
+        margin-top: 0.5rem;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav class="navbar">
-            <div class="logo">
-                <h1>StockMarket</h1>
-            </div>
-            <div class="nav-links">
-                <a href="../index.html">Home</a>
-                <a href="watchlist.html" class="active">Watchlist</a>
-                <a href="resources.html">Resources</a>
-                <a href="returns-calculator.html">Returns Calculator</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="team.html">Team</a>
-                <a href="login.html" class="login-btn">Login</a>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
+      <nav class="navbar">
+        <div class="logo">
+          <h1>StockMarket</h1>
+        </div>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="watchlist.html" class="active">Watchlist</a>
+          <a href="resources.html">Resources</a>
+          <a href="returns-calculator.html">Returns Calculator</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="team.html">Team</a>
+          <a href="login.html" class="login-btn">Login</a>
+        </div>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
     </header>
 
     <main>
-        <div class="container">
-            <h1>Your Watchlist</h1>
+      <div class="container">
+        <h1>Your Watchlist</h1>
 
-            <div class="watchlist-info">
-                <p>
-                    Track your favorite stocks in real-time. Select stocks from our
-                    curated list to add them to your watchlist. Prices will update every
-                    5 seconds.
-                </p>
-            </div>
-
-            <div class="stock-selector">
-                <select id="stockSelect">
-                    <option value="">Select a stock to add</option>
-                    <option value="RELIANCE">Reliance Industries</option>
-                    <option value="TCS">Tata Consultancy Services</option>
-                    <option value="HDFCBANK">HDFC Bank</option>
-                    <option value="INFY">Infosys</option>
-                    <option value="ICICIBANK">ICICI Bank</option>
-                    <option value="HINDUNILVR">Hindustan Unilever</option>
-                    <option value="SBIN">State Bank of India</option>
-                    <option value="BHARTIARTL">Bharti Airtel</option>
-                    <option value="ITC">ITC Limited</option>
-                    <option value="KOTAKBANK">Kotak Mahindra Bank</option>
-                    <option value="L&T">Larsen & Toubro</option>
-                    <option value="HCLTECH">HCL Technologies</option>
-                    <option value="ASIANPAINT">Asian Paints</option>
-                    <option value="AXISBANK">Axis Bank</option>
-                    <option value="MARUTI">Maruti Suzuki</option>
-                </select>
-                <button onclick="addToWatchlist()">Add to Watchlist</button>
-            </div>
-
-            <div id="watchlistContainer" class="watchlist-grid"></div>
+        <div class="watchlist-info">
+          <p>
+            Track your favorite stocks in real-time. Select stocks from our
+            curated list to add them to your watchlist. Prices will update every
+            5 seconds.
+          </p>
         </div>
+
+        <div class="stock-selector">
+          <select id="stockSelect">
+            <option value="">Select a stock to add</option>
+            <option value="RELIANCE">Reliance Industries</option>
+            <option value="TCS">Tata Consultancy Services</option>
+            <option value="HDFCBANK">HDFC Bank</option>
+            <option value="INFY">Infosys</option>
+            <option value="ICICIBANK">ICICI Bank</option>
+            <option value="HINDUNILVR">Hindustan Unilever</option>
+            <option value="SBIN">State Bank of India</option>
+            <option value="BHARTIARTL">Bharti Airtel</option>
+            <option value="ITC">ITC Limited</option>
+            <option value="KOTAKBANK">Kotak Mahindra Bank</option>
+            <option value="L&T">Larsen & Toubro</option>
+            <option value="HCLTECH">HCL Technologies</option>
+            <option value="ASIANPAINT">Asian Paints</option>
+            <option value="AXISBANK">Axis Bank</option>
+            <option value="MARUTI">Maruti Suzuki</option>
+          </select>
+          <button onclick="addToWatchlist()">Add to Watchlist</button>
+        </div>
+
+        <div id="watchlistContainer" class="watchlist-grid"></div>
+      </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Stock Market Info & Strategies.</p>
+      <p>&copy; 2024 Stock Market Info & Strategies.</p>
     </footer>
 
     <script src="../js/auth.js"></script>
     <script>
-        // Initial stock prices (simulated)
-        const initialPrices = {
-            RELIANCE: 2850.75,
-            TCS: 3850.2,
-            HDFCBANK: 1650.5,
-            INFY: 1550.3,
-            ICICIBANK: 950.25,
-            HINDUNILVR: 2450.8,
-            SBIN: 650.4,
-            BHARTIARTL: 1150.15,
-            ITC: 450.9,
-            KOTAKBANK: 1750.6,
-            "L&T": 3450.25,
-            HCLTECH: 1350.7,
-            ASIANPAINT: 3150.45,
-            AXISBANK: 1050.3,
-            MARUTI: 9850.75,
+      // Initial stock prices (simulated)
+      const initialPrices = {
+        RELIANCE: 2850.75,
+        TCS: 3850.2,
+        HDFCBANK: 1650.5,
+        INFY: 1550.3,
+        ICICIBANK: 950.25,
+        HINDUNILVR: 2450.8,
+        SBIN: 650.4,
+        BHARTIARTL: 1150.15,
+        ITC: 450.9,
+        KOTAKBANK: 1750.6,
+        "L&T": 3450.25,
+        HCLTECH: 1350.7,
+        ASIANPAINT: 3150.45,
+        AXISBANK: 1050.3,
+        MARUTI: 9850.75,
+      };
+
+      let watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+      let currentPrices = { ...initialPrices };
+
+      function generateRandomChange() {
+        return (Math.random() * 4 - 2).toFixed(2); // Random change between -2% and +2%
+      }
+
+      function updatePrice(symbol) {
+        const currentPrice = currentPrices[symbol];
+        const changePercent = generateRandomChange();
+        const change = ((currentPrice * changePercent) / 100).toFixed(2);
+        currentPrices[symbol] = parseFloat(
+          (currentPrice + parseFloat(change)).toFixed(2),
+        );
+        return {
+          price: currentPrices[symbol],
+          change: parseFloat(change),
+          changePercent: parseFloat(changePercent),
         };
+      }
 
-        let watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
-        let currentPrices = {...initialPrices};
+      function createStockCard(symbol) {
+        const stockData = updatePrice(symbol);
+        const price = stockData.price.toFixed(2);
+        const change = stockData.change.toFixed(2);
+        const changePercent = stockData.changePercent.toFixed(2);
+        const now = new Date().toLocaleTimeString();
 
-        function generateRandomChange() {
-            return (Math.random() * 4 - 2).toFixed(2); // Random change between -2% and +2%
-        }
-
-        function updatePrice(symbol) {
-            const currentPrice = currentPrices[symbol];
-            const changePercent = generateRandomChange();
-            const change = ((currentPrice * changePercent) / 100).toFixed(2);
-            currentPrices[symbol] = parseFloat(
-                (currentPrice + parseFloat(change)).toFixed(2),
-            );
-            return {
-                price: currentPrices[symbol],
-                change: parseFloat(change),
-                changePercent: parseFloat(changePercent),
-            };
-        }
-
-        function createStockCard(symbol) {
-            const stockData = updatePrice(symbol);
-            const price = stockData.price.toFixed(2);
-            const change = stockData.change.toFixed(2);
-            const changePercent = stockData.changePercent.toFixed(2);
-            const now = new Date().toLocaleTimeString();
-
-            return `
+        return `
                 <div class="stock-card">
                     <h3>${symbol}</h3>
                     <p class="price">₹${price}</p>
                     <p class="change ${change >= 0 ? "positive" : "negative"}">
                         ${change >= 0 ? "+" : ""}${change} (${changePercent}%)
                     </p>
-                    <p class="last-update">Last updated: ${now}</p>
                     <button onclick="removeFromWatchlist('${symbol}')" class="remove-btn">Remove</button>
                 </div>
             `;
-        }
+      }
 
-        async function updateWatchlist() {
-            const container = document.getElementById("watchlistContainer");
+      async function updateWatchlist() {
+        const container = document.getElementById("watchlistContainer");
 
-            if (watchlist.length === 0) {
-                container.innerHTML = `
+        if (watchlist.length === 0) {
+          container.innerHTML = `
                     <div class="empty-watchlist">
                         <p>Your watchlist is empty</p>
                         <p>Select stocks from the dropdown to start tracking them</p>
                     </div>
                 `;
-                return;
-            }
-
-            let stockCards = "";
-            for (const symbol of watchlist) {
-                stockCards += createStockCard(symbol);
-            }
-            container.innerHTML = stockCards;
+          return;
         }
 
-        function addToWatchlist() {
-            const select = document.getElementById("stockSelect");
-            const symbol = select.value;
-
-            if (symbol && !watchlist.includes(symbol)) {
-                watchlist.push(symbol);
-                localStorage.setItem("watchlist", JSON.stringify(watchlist));
-                select.value = "";
-                updateWatchlist();
-            }
+        let stockCards = "";
+        for (const symbol of watchlist) {
+          stockCards += createStockCard(symbol);
         }
+        container.innerHTML = stockCards;
+      }
 
-        function removeFromWatchlist(symbol) {
-            watchlist = watchlist.filter((s) => s !== symbol);
-            localStorage.setItem("watchlist", JSON.stringify(watchlist));
-            updateWatchlist();
+      function addToWatchlist() {
+        const select = document.getElementById("stockSelect");
+        const symbol = select.value;
+
+        if (symbol && !watchlist.includes(symbol)) {
+          watchlist.push(symbol);
+          localStorage.setItem("watchlist", JSON.stringify(watchlist));
+          select.value = "";
+          updateWatchlist();
         }
+      }
 
-        // Initial load
+      function removeFromWatchlist(symbol) {
+        watchlist = watchlist.filter((s) => s !== symbol);
+        localStorage.setItem("watchlist", JSON.stringify(watchlist));
         updateWatchlist();
-        // Update every 5 seconds
-        setInterval(updateWatchlist, 5000);
-    </script>
-</body>
+      }
 
+      // Initial load
+      updateWatchlist();
+      // Update every 5 seconds
+      setInterval(updateWatchlist, 5000);
+    </script>
+  </body>
 </html>

@@ -1,102 +1,110 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - Stock Market Information</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register - Stock Market Information</title>
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
-</head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <a href="../index.html">Stock Market</a>
+      </div>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="team.html">Team</a>
+        <a href="login.html">Login</a>
+      </div>
+    </nav>
 
-<body>
-  <nav class="navbar">
-    <div class="nav-brand">
-      <a href="../index.html">Stock Market</a>
-    </div>
-    <div class="nav-links">
-      <a href="../index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
-      <a href="team.html">Team</a>
-      <a href="login.html">Login</a>
-    </div>
-  </nav>
-
-  <section class="register-section">
-    <div class="register-container">
-      <div class="register-box">
-        <h2>Create Account</h2>
-        <form id="registerForm" class="register-form">
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required />
+    <section class="register-section">
+      <div class="register-container">
+        <div class="register-box">
+          <h2>Create Account</h2>
+          <form id="registerForm" class="register-form">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" required />
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                required
+              />
+            </div>
+            <button type="submit" class="register-btn">Register</button>
+          </form>
+          <div class="form-footer">
+            <p>Already have an account? <a href="login.html">Login here</a></p>
           </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required />
-          </div>
-          <div class="form-group">
-            <label for="confirmPassword">Confirm Password</label>
-            <input type="password" id="confirmPassword" name="confirmPassword" required />
-          </div>
-          <button type="submit" class="register-btn">Register</button>
-        </form>
-        <div class="form-footer">
-          <p>Already have an account? <a href="login.html">Login here</a></p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer class="footer">
-    <p>&copy; 2024 Stock Market Info & Strategies.</p>
-  </footer>
+    <footer class="footer">
+      <p>&copy; 2024 Stock Market Info & Strategies.</p>
+    </footer>
 
-  <script src="../js/auth.js"></script>
-  <script>
-    document
-      .getElementById("registerForm")
-      .addEventListener("submit", async function (e) {
-        e.preventDefault();
+    <script src="../js/auth.js"></script>
+    <script>
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
 
-        const username = document.getElementById("username").value;
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        const confirmPassword =
-          document.getElementById("confirmPassword").value;
+          const username = document.getElementById("username").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const confirmPassword =
+            document.getElementById("confirmPassword").value;
 
-        if (password !== confirmPassword) {
-          alert("Passwords do not match!");
-          return;
-        }
-
-        try {
-          const response = await fetch("/api/register", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({username, email, password}),
-          });
-
-          const data = await response.json();
-
-          if (!response.ok) {
-            throw new Error(data.error || "Registration failed");
+          if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
           }
 
-          alert("Registration successful! Please login.");
-          window.location.href = "login.html";
-        } catch (error) {
-          alert(error.message);
-        }
-      });
-  </script>
-</body>
+          try {
+            const response = await fetch("/api/register", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ username, email, password }),
+            });
 
+            const data = await response.json();
+
+            if (!response.ok) {
+              throw new Error(data.error || "Registration failed");
+            }
+
+            alert("Registration successful! Please login.");
+            window.location.href = "login.html";
+          } catch (error) {
+            alert(error.message);
+          }
+        });
+    </script>
+  </body>
 </html>
