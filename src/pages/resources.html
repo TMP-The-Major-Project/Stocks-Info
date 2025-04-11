@@ -102,6 +102,36 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button-link {
+            display: inline-block;
+            background-color: #008080;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: "Arial", sans-serif;
+            cursor: pointer;
+            text-decoration: none;
+            transition:
+                background-color 0.3s ease,
+                transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-link:hover {
+            background-color: #006666;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 
@@ -186,6 +216,9 @@
             </div>
         </div>
     </main>
+    <div class="button-container">
+        <a href="/pages/personalized.html" target="_blank" class="button-link">For more personalised recommendation</a>
+    </div>
 
     <footer>
         <p>&copy; 2024 Stock Market Info & Strategies.</p>
