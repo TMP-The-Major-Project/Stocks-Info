@@ -45,8 +45,24 @@ type ReturnsResponse struct {
 	FinalAmount     float64 `json:"finalAmount"`
 }
 
+// UserPreferences represents a user's investment preferences
+type UserPreferences struct {
+	FirstName         string   `json:"firstname"`
+	LastName          string   `json:"lastname"`
+	Email             string   `json:"email"`
+	ContactNumber     string   `json:"contactnumber"`
+	Gender            string   `json:"gender"`
+	Address           string   `json:"address"`
+	Occupation        string   `json:"occupation"`
+	Income            string   `json:"income"`
+	InvestmentReason  string   `json:"investmentreason"`
+}
+
 // In-memory storage (replace with database in production)
 var users = make(map[string]User)
+
+// In-memory storage for user preferences
+var userPreferences = make(map[string]UserPreferences)
 
 func init() {
 	// Add default admin user
@@ -79,6 +95,9 @@ func main() {
 
 	// Returns calculator
 	api.Post("/calculate-returns", handleCalculateReturns)
+
+	// Add the personalInfo route
+	api.Post("/personalInfo", handlePersonalInfo)
 
 	// Start server
 	log.Fatal(app.Listen(":3000"))
@@ -184,4 +203,21 @@ func handleCalculateReturns(c *fiber.Ctx) error {
 	}
 
 	return c.JSON(response)
+}
+
+// handlePersonalInfo handles the personal information form submission
+func handlePersonalInfo(c *fiber.Ctx) error {
+	var preferences UserPreferences
+	if err := c.BodyParser(&preferences); err != nil {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"error": "Invalid request body",
+		})
+	}
+
+	// Store preferences in memory using email as key
+	userPreferences[preferences.Email] = preferences
+
+	return c.JSON(fiber.Map{
+		"message": "Preferences saved successfully",
+	})
 }

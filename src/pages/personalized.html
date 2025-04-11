@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration- Stock Market Information</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        :root {
+            --primary-color: #008080;
+            --primary-light: #20b2aa;
+            --text-color: #333;
+            --background-color: #f9f9f9;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b3d9d9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #008080;
+            margin-top: 50px;
+        }
+
+        .navbar {
+            background-color: #008080;
+            padding: 2rem 3rem;
+            display: flex;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var#008080;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin: 10px 0 5px;
+            color: #16b9b3;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            display: block;
+            margin-right: auto;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .radio-group {
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #16b9b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #14a19e;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 5% 1rem;
+        }
+    </style>
+    <script>
+        function toggleOtherInput() {
+            var occupationSelect = document.getElementById("occupation");
+            var otherInput = document.getElementById("otherOccupation");
+            if (occupationSelect.value === "other") {
+                otherInput.style.display = "block";
+            } else {
+                otherInput.style.display = "none";
+            }
+        }
+
+        async function validateForm(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            var form = document.forms["form1"];
+            var firstName = form.firstname.value.trim();
+            if (firstName === "") {
+                alert("Please enter your first name");
+                form.firstname.focus();
+                return false;
+            }
+
+            var firstNameExp = /^[A-Za-z]+$/;
+            if (!firstName.match(firstNameExp)) {
+                alert("First name can only contain alphabetic characters");
+                form.firstname.focus();
+                return false;
+            }
+
+            if (form.lastname.value.trim() === "") {
+                alert("Please enter your last name");
+                form.lastname.focus();
+                return false;
+            }
+
+            var email = form.email.value.trim();
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (email === "") {
+                alert("Please enter your email address");
+                form.email.focus();
+                return false;
+            } else if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address");
+                form.email.focus();
+                return false;
+            }
+
+            var contactNumber = form.contactnumber.value.trim();
+            if (contactNumber === "") {
+                alert("Please enter your contact number");
+                form.contactnumber.focus();
+                return false;
+            } else if (contactNumber.length < 10 || contactNumber.length > 15) {
+                alert("Contact number should be between 10 and 15 digits");
+                form.contactnumber.focus();
+                return false;
+            }
+
+            if (!form.Gender[0].checked && !form.Gender[1].checked) {
+                alert("Please select your gender");
+                return false;
+            }
+
+            if (form.address.value.trim() === "") {
+                alert("Please enter your address");
+                form.address.focus();
+                return false;
+            }
+
+            if (form.occupation.value === "") {
+                alert("Please select your occupation");
+                form.occupation.focus();
+                return false;
+            }
+
+            if (
+                !form.Income[0].checked &&
+                !form.Income[1].checked &&
+                !form.Income[2].checked
+            ) {
+                alert("Please select your income");
+                return false;
+            }
+
+            if (form.Investmentreason.value.trim() === "") {
+                alert("Please provide a reason for investment");
+                form.Investmentreason.focus();
+                return false;
+            }
+
+            try {
+                const firstname = document.getElementById('firstname').value;
+                const lastname = document.getElementById('lastname').value;
+                const email = document.getElementById('email').value;
+                const contactnumber = document.getElementById('contactnumber').value;
+                const gender = document.querySelector('input[name="Gender"]:checked').value;
+                const address = document.getElementById('address').value;
+                const occupation = document.getElementById('occupation').value === "other" 
+                    ? document.getElementById('customOccupation').value 
+                    : document.getElementById('occupation').value;
+                const income = document.querySelector('input[name="Income"]:checked').value;
+                const investmentreason = document.getElementById('reason').value;
+
+                const response = await fetch("/api/personalInfo", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({
+                        firstname,
+                        lastname,
+                        email,
+                        contactnumber,
+                        gender,
+                        address,
+                        occupation,
+                        income,
+                        investmentreason
+                    }),
+                });
+
+                const data = await response.json();
+                if (!response.ok) {
+                    throw new Error(data.error || "Failed to save information");
+                }
+
+                alert("Information saved successfully!");
+                window.location.href = "../index.html";
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="../index.html">Stock Market</a>
+        </div>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="team.html">Team</a>
+            <a href="login.html">Login</a>
+        </div>
+    </nav>
+
+    <h2>Registration Form</h2>
+    <div class="form-container">
+        <form name="form1" onsubmit="validateForm(event)" novalidate>
+            <label for="firstname">First name:</label>
+            <input type="text" name="firstname" id="firstname" />
+
+            <label for="lastname">Last name:</label>
+            <input type="text" name="lastname" id="lastname" />
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" />
+
+            <label for="contactnumber">Contact number:</label>
+            <input type="tel" name="contactnumber" id="contactnumber" />
+
+            <label>Gender:</label>
+            <input type="radio" name="Gender" value="male" /> Male
+            <input type="radio" name="Gender" value="female" /> Female
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" placeholder="Street, City, State, Zip Code"></textarea>
+
+            <label for="occupation">Select an Occupation:</label>
+            <select id="occupation" name="occupation" onchange="toggleOtherInput()">
+                <option value="">--Select--</option>
+                <option value="Business">Business</option>
+                <option value="Lawyer">Lawyer</option>
+                <option value="Doctor">Doctor</option>
+                <option value="other">Other</option>
+            </select>
+
+            <div id="otherOccupation" class="hidden">
+                <label for="customOccupation">Please specify your occupation:</label>
+                <input type="text" id="customOccupation" name="customOccupation" placeholder="Enter your occupation" />
+            </div>
+
+            <div class="radio-group">
+                <label>Income:</label>
+                <input type="radio" name="Income" value="less than 5 lakhs" /> Less
+                than 5 lakhs
+                <input type="radio" name="Income" value="less than 10 lakhs" /> Less
+                than 10 lakhs
+                <input type="radio" name="Income" value="More than 10 lakhs" /> More
+                than 10 lakhs
+            </div>
+
+            <label for="reason">Reason for Investment:</label>
+            <textarea id="reason" name="Investmentreason" rows="4"></textarea>
+
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2024 Stock Market Info & Strategies.</p>
+    </footer>
+</body>
+
+</html>
