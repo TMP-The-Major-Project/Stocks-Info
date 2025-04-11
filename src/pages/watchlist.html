@@ -309,13 +309,9 @@
       let watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
       let currentPrices = { ...initialPrices };
 
-      function generateRandomChange() {
-        return (Math.random() * 4 - 2).toFixed(2); // Random change between -2% and +2%
-      }
-
       function updatePrice(symbol) {
         const currentPrice = currentPrices[symbol];
-        const changePercent = generateRandomChange();
+        const changePercent = 2;
         const change = ((currentPrice * changePercent) / 100).toFixed(2);
         currentPrices[symbol] = parseFloat(
           (currentPrice + parseFloat(change)).toFixed(2),
