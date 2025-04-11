@@ -2,301 +2,222 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Returns Calculator - Stock Market</title>
+    <title>SIP Returns Calculator</title>
+
     <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
       body {
-        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+        padding-top: 100px;
+      }
+
+      .navbar {
+        background-color: #008080;
+        padding: 2rem 3rem;
         display: flex;
-        flex-direction: column;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
       }
 
-      main {
-        flex: 1;
-        padding-top: 80px;
-      }
-
-      .container {
-        min-height: calc(100vh - 80px - 60px);
-        /* viewport height - header - footer */
+      .nav-links {
         display: flex;
-        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
       }
 
-      .calculator-form {
-        background: #fff;
-        border-radius: 10px;
-        padding: 2rem;
-        margin: 2rem 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        flex: 1;
+      .nav-brand a {
+        font-size: 1.5rem;
+        font-weight: 700;
+
+        color: #ffffff;
+
+        text-decoration: none;
       }
 
-      .form-group {
-        margin-bottom: 1.5rem;
-      }
+      .nav-links a {
+        color: #ffffff;
 
-      .form-group label {
-        display: block;
-        margin-bottom: 0.5rem;
-        color: #2c3e50;
+        margin-left: 20px;
+        text-decoration: none;
+
         font-weight: 500;
       }
 
-      .form-group input {
-        width: 100%;
-        padding: 0.8rem;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 1rem;
-        transition: border-color 0.3s;
+      .nav-links a:hover {
+        color: var#008080;
       }
 
-      .form-group input:focus {
-        outline: none;
-        border-color: #3498db;
+      .container {
+        max-width: 600px;
+        margin: 80px auto;
+        padding: 30px;
+        background: #b3d9d9;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       }
 
-      .calculate-btn {
-        background: #3498db;
-        color: white;
-        padding: 1rem 2rem;
-        border: none;
-        border-radius: 5px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background 0.3s;
-        width: 100%;
-        margin-top: 1rem;
-      }
-
-      .calculate-btn:hover {
-        background: #2980b9;
-      }
-
-      .results-section {
-        background: #fff;
-        border-radius: 10px;
-        padding: 2rem;
-        margin: 2rem 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        flex: 1;
-      }
-
-      .results-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-        margin-top: 1.5rem;
-      }
-
-      .result-card {
-        background: #f8f9fa;
-        padding: 1.5rem;
-        border-radius: 8px;
+      h1 {
         text-align: center;
+        margin-bottom: 30px;
+
+        color: #0a7c8c;
       }
 
-      .result-card h3 {
-        color: #2c3e50;
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
+      label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
       }
 
-      .result-card p {
-        color: #2c3e50;
-        font-size: 1.5rem;
-        font-weight: 600;
+      input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+
+      button {
+        width: 100%;
+
+        padding: 15px;
+        background-color: #008080;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #20b2aa;
+      }
+
+      .result {
+        margin-top: 20px;
+        font-size: 22px;
+        text-align: center;
+        color: #008080;
+        font-weight: bold;
       }
 
       .calculator-info {
         background: #f8f9fa;
-        padding: 1.5rem;
+
+        padding: 3 rem;
         border-radius: 8px;
-        margin-bottom: 2rem;
+
+        margin-left: 20rem;
+        margin-right: 20rem;
         line-height: 1.6;
+        text-align: center;
+        font-weight: bold;
       }
 
-      .calculator-info p {
-        color: #666;
-        margin-bottom: 1rem;
-      }
+      .footer {
+        background-color: #008080;
+        color: white;
 
-      @media (max-width: 768px) {
-        .calculator-form,
-        .results-section {
-          padding: 1rem;
-          margin: 1rem 0;
-        }
-
-        .results-grid {
-          grid-template-columns: 1fr;
-        }
+        padding: 3rem 5% 1rem;
       }
     </style>
   </head>
 
   <body>
-    <header>
-      <nav class="navbar">
-        <div class="logo">
-          <h1>StockMarket</h1>
-        </div>
-        <div class="nav-links">
-          <a href="../index.html">Home</a>
-          <a href="watchlist.html">Watchlist</a>
-          <a href="resources.html">Resources</a>
-          <a href="returns-calculator.html" class="active"
-            >Returns Calculator</a
-          >
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-          <a href="team.html">Team</a>
-          <a href="login.html" class="login-btn">Login</a>
-        </div>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </nav>
-    </header>
-
-    <main>
-      <div class="container">
-        <h1>SIP Returns Calculator</h1>
-
-        <div class="calculator-info">
-          <p>
-            Calculate your potential returns on Systematic Investment Plans
-            (SIP). Enter your monthly investment amount, investment period, and
-            expected annual return to see how your money could grow over time.
-          </p>
-        </div>
-
-        <div class="calculator-form">
-          <div class="form-group">
-            <label for="monthlyInvestment">Monthly Investment (₹)</label>
-            <input
-              type="number"
-              id="monthlyInvestment"
-              min="500"
-              step="500"
-              value="5000"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="investmentPeriod">Investment Period (Years)</label>
-            <input
-              type="number"
-              id="investmentPeriod"
-              min="1"
-              max="30"
-              value="10"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="expectedReturn">Expected Annual Return (%)</label>
-            <input
-              type="number"
-              id="expectedReturn"
-              min="1"
-              max="30"
-              value="12"
-            />
-          </div>
-
-          <button onclick="calculateReturns()" class="calculate-btn">
-            Calculate Returns
-          </button>
-        </div>
-
-        <div id="results" class="results-section" style="display: none">
-          <h2>Investment Results</h2>
-          <div class="results-grid">
-            <div class="result-card">
-              <h3>Total Investment</h3>
-              <p id="totalInvestment">₹0</p>
-            </div>
-            <div class="result-card">
-              <h3>Expected Returns</h3>
-              <p id="totalReturns">₹0</p>
-            </div>
-            <div class="result-card">
-              <h3>Total Value</h3>
-              <p id="totalValue">₹0</p>
-            </div>
-          </div>
-        </div>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <a href="../index.html">Stock Market</a>
       </div>
-    </main>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="team.html">Team</a>
+        <a href="login.html">Login</a>
+      </div>
+    </nav>
+    <h1>SIP Returns Calculator</h1>
+    <p class="calculator-info">
+      Calculate your potential returns on Systematic Investment Plans (SIP).
+      Enter your monthly investment amount, investment period, and expected
+      annual return to see how your money could grow over time.
+    </p>
 
-    <footer>
+    <div class="container">
+      <label for="monthlyInvestment">Monthly Investment (₹)</label>
+      <input type="number" id="monthlyInvestment" placeholder="e.g. 5000" />
+
+      <label for="investmentPeriod">Investment Period (Years)</label>
+      <input type="number" id="investmentPeriod" placeholder="e.g. 10" />
+
+      <label for="annualReturn">Expected Annual Return (%)</label>
+      <input type="number" id="annualReturn" placeholder="e.g. 12" />
+
+      <button id="calculateBtn">Calculate Returns</button>
+
+      <div class="result" id="result"></div>
+    </div>
+
+    <script>
+      function calculateSIP(monthlyInvestment, investmentPeriod, annualReturn) {
+        var n = investmentPeriod * 12; // months
+        var r = annualReturn / 100 / 12; // monthly rate
+        var maturityAmount =
+          monthlyInvestment * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
+        return maturityAmount;
+      }
+
+      $(document).ready(function () {
+        $("#calculateBtn").click(function () {
+          var monthlyInvestment = parseFloat($("#monthlyInvestment").val());
+
+          var investmentPeriod = parseFloat($("#investmentPeriod").val());
+          var annualReturn = parseFloat($("#annualReturn").val());
+
+          if (
+            isNaN(monthlyInvestment) ||
+            isNaN(investmentPeriod) ||
+            isNaN(annualReturn)
+          ) {
+            $("#result").text("Please fill all fields correctly.");
+            return;
+          }
+
+          var maturity = calculateSIP(
+            monthlyInvestment,
+            investmentPeriod,
+            annualReturn,
+          );
+
+          $("#result").html(
+            `Estimated Maturity Amount: ₹${maturity.toFixed(2)}`,
+          );
+        });
+      });
+    </script>
+    <footer class="footer">
       <p>&copy; 2024 Stock Market Info & Strategies.</p>
     </footer>
-
-    <script src="../js/auth.js"></script>
-    <script>
-      async function calculateReturns() {
-        const monthlyInvestment = parseFloat(
-          document.getElementById("monthlyInvestment").value,
-        );
-        const investmentPeriod = parseInt(
-          document.getElementById("investmentPeriod").value,
-        );
-        const expectedReturn = parseFloat(
-          document.getElementById("expectedReturn").value,
-        );
-
-        try {
-          const response = await fetch("/api/calculate-returns", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              initialInvestment: 0,
-              monthlyContribution: monthlyInvestment,
-              years: investmentPeriod,
-              annualReturn: expectedReturn,
-            }),
-          });
-
-          const data = await response.json();
-
-          if (response.ok) {
-            displayResults({
-              total_investment: data.totalInvestment,
-              total_returns: data.totalReturns,
-              total_value: data.finalAmount,
-            });
-          } else {
-            alert(
-              "Error calculating returns: " + (data.error || "Unknown error"),
-            );
-          }
-        } catch (error) {
-          console.error("Error:", error);
-          alert("Failed to calculate returns. Please try again.");
-        }
-      }
-
-      function displayResults(data) {
-        document.getElementById("results").style.display = "block";
-        document.getElementById("totalInvestment").textContent =
-          "₹" + data.total_investment.toLocaleString("en-IN");
-        document.getElementById("totalReturns").textContent =
-          "₹" + data.total_returns.toLocaleString("en-IN");
-        document.getElementById("totalValue").textContent =
-          "₹" + data.total_value.toLocaleString("en-IN");
-      }
-    </script>
   </body>
 </html>
