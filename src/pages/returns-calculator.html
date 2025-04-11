@@ -21,7 +21,6 @@
         background-color: #f9f9f9;
         margin: 0;
         padding: 0;
-        padding-top: 100px;
       }
 
       .navbar {
@@ -31,11 +30,6 @@
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         justify-content: space-between;
         align-items: center;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: 1000;
       }
 
       .nav-links {
@@ -78,7 +72,6 @@
       h1 {
         text-align: center;
         margin-bottom: 30px;
-
         color: #0a7c8c;
       }
 
@@ -124,7 +117,6 @@
 
       .calculator-info {
         background: #f8f9fa;
-
         padding: 3 rem;
         border-radius: 8px;
 
@@ -151,10 +143,13 @@
       </div>
       <div class="nav-links">
         <a href="../index.html">Home</a>
-        <a href="about.html">About Us</a>
+        <a href="watchlist.html" class="active">Watchlist</a>
+        <a href="resources.html">Resources</a>
+        <a href="returns-calculator.html">Returns Calculator</a>
+        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
         <a href="team.html">Team</a>
-        <a href="login.html">Login</a>
+        <a href="login.html" class="login-btn">Login</a>
       </div>
     </nav>
     <h1>SIP Returns Calculator</h1>
@@ -191,7 +186,6 @@
       $(document).ready(function () {
         $("#calculateBtn").click(function () {
           var monthlyInvestment = parseFloat($("#monthlyInvestment").val());
-
           var investmentPeriod = parseFloat($("#investmentPeriod").val());
           var annualReturn = parseFloat($("#annualReturn").val());
 
