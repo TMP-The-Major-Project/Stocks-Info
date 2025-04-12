@@ -1,258 +1,237 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resources - Stock Market</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
 
-      main {
-        flex: 1;
-        padding-top: 80px;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources - Stock Market</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-      .container {
-        min-height: calc(100vh - 80px - 60px);
-        padding: 2rem;
-      }
+    main {
+      flex: 1;
+      padding-top: 80px;
+    }
 
+    .container {
+      min-height: calc(100vh - 80px - 60px);
+      padding: 2rem;
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .resource-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .resource-card h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 0.5rem;
+    }
+
+    .resource-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .resource-card li {
+      margin-bottom: 0.8rem;
+      padding: 0.5rem;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .resource-card li:hover {
+      background-color: #f8f9fa;
+    }
+
+    .resource-card a {
+      color: #2c3e50;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .resource-card a:hover {
+      color: #3498db;
+    }
+
+    .resource-card i {
+      color: #3498db;
+    }
+
+    .resources-info {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .resources-info p {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
       .resources-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
+        grid-template-columns: 1fr;
       }
+    }
 
-      .resource-card {
-        background: #fff;
-        border-radius: 10px;
-        padding: 1.5rem;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
-      }
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      justify-content: center;
+      align-items: center;
+    }
 
-      .resource-card:hover {
-        transform: translateY(-5px);
-      }
+    .button-link {
+      display: inline-block;
+      background-color: #008080;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-family: "Arial", sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
 
-      .resource-card h3 {
-        color: #2c3e50;
-        margin-bottom: 1rem;
-        font-size: 1.4rem;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 0.5rem;
-      }
+    .button-link:hover {
+      background-color: #006666;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
 
-      .resource-card ul {
-        list-style: none;
-        padding: 0;
-      }
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>StockMarket</h1>
+      </div>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="watchlist.html">Watchlist</a>
+        <a href="resources.html" class="active">Resources</a>
+        <a href="returns-calculator.html">Returns Calculator</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="team.html">Team</a>
+        <a href="login.html" class="login-btn">Login</a>
+      </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
 
-      .resource-card li {
-        margin-bottom: 0.8rem;
-        padding: 0.5rem;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-      }
+  <main>
+    <div class="container">
+      <h1>Stock Market Resources</h1>
 
-      .resource-card li:hover {
-        background-color: #f8f9fa;
-      }
+      <div class="resources-info">
+        <p>
+          Explore our comprehensive collection of stock market tools, guides,
+          and information. From IPO tracking to trading strategies, find
+          everything you need to make informed investment decisions.
+        </p>
+      </div>
 
-      .resource-card a {
-        color: #2c3e50;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .resource-card a:hover {
-        color: #3498db;
-      }
-
-      .resource-card i {
-        color: #3498db;
-      }
-
-      .resources-info {
-        background: #f8f9fa;
-        padding: 1.5rem;
-        border-radius: 8px;
-        margin-bottom: 2rem;
-        line-height: 1.6;
-      }
-
-      .resources-info p {
-        color: #666;
-        margin-bottom: 1rem;
-      }
-
-      @media (max-width: 768px) {
-        .resources-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .button-container {
-        text-align: center;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .button-link {
-        display: inline-block;
-        background-color: #008080;
-        color: white;
-        padding: 12px 24px;
-        border: none;
-        border-radius: 8px;
-        font-size: 16px;
-        font-family: "Arial", sans-serif;
-        cursor: pointer;
-        text-decoration: none;
-        transition:
-          background-color 0.3s ease,
-          transform 0.2s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-      }
-
-      .button-link:hover {
-        background-color: #006666;
-        transform: scale(1.05);
-      }
-    </style>
-  </head>
-
-  <body>
-    <header>
-      <nav class="navbar">
-        <div class="logo">
-          <h1>StockMarket</h1>
-        </div>
-        <div class="nav-links">
-          <a href="../index.html">Home</a>
-          <a href="watchlist.html">Watchlist</a>
-          <a href="resources.html" class="active">Resources</a>
-          <a href="returns-calculator.html">Returns Calculator</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-          <a href="team.html">Team</a>
-          <a href="login.html" class="login-btn">Login</a>
-        </div>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </nav>
-    </header>
-
-    <main>
-      <div class="container">
-        <h1>Stock Market Resources</h1>
-
-        <div class="resources-info">
-          <p>
-            Explore our comprehensive collection of stock market tools, guides,
-            and information. From IPO tracking to trading strategies, find
-            everything you need to make informed investment decisions.
-          </p>
+      <div class="resources-grid">
+        <div class="resource-card">
+          <h3>Market Guides</h3>
+          <ul>
+            <li>
+              <a href="new_ipo.html"><i class="fas fa-chart-line"></i> IPO Calendar</a>
+            </li>
+            <li>
+              <a href="futures-options.html"><i class="fas fa-exchange-alt"></i> Futures & Options</a>
+            </li>
+            <li>
+              <a href="indices.html"><i class="fas fa-chart-bar"></i> Market Indices</a>
+            </li>
+            <li>
+              <a href="options.html"><i class="fas fa-options"></i> Options Trading</a>
+            </li>
+            <li>
+              <a href="retire_calc.html"><i class="fas fa-options"></i> Retirement Calculator
+              </a>
+            </li>
+          </ul>
         </div>
 
-        <div class="resources-grid">
-          <div class="resource-card">
-            <h3>Market Guides</h3>
-            <ul>
-              <li>
-                <a href="ipo.html"
-                  ><i class="fas fa-chart-line"></i> IPO Calendar</a
-                >
-              </li>
-              <li>
-                <a href="futures-options.html"
-                  ><i class="fas fa-exchange-alt"></i> Futures & Options</a
-                >
-              </li>
-              <li>
-                <a href="indices.html"
-                  ><i class="fas fa-chart-bar"></i> Market Indices</a
-                >
-              </li>
-              <li>
-                <a href="options.html"
-                  ><i class="fas fa-options"></i> Options Trading</a
-                >
-              </li>
-              <li>
-                <a href="retire_calc.html"
-                  ><i class="fas fa-options"></i> Retirement Calculator
-                </a>
-              </li>
-            </ul>
-          </div>
+        <div class="resource-card">
+          <h3>Investment Plans</h3>
+          <ul>
+            <li>
+              <a href="mutual-funds.html"><i class="fas fa-fund"></i> Mutual Funds</a>
+            </li>
+            <li>
+              <a href="long-term.html"><i class="fas fa-calendar-check"></i> Long Term Plans</a>
+            </li>
+            <li>
+              <a href="short-term.html"><i class="fas fa-clock"></i> Short Term Plans</a>
+            </li>
+          </ul>
+        </div>
 
-          <div class="resource-card">
-            <h3>Investment Plans</h3>
-            <ul>
-              <li>
-                <a href="mutual-funds.html"
-                  ><i class="fas fa-fund"></i> Mutual Funds</a
-                >
-              </li>
-              <li>
-                <a href="long-term.html"
-                  ><i class="fas fa-calendar-check"></i> Long Term Plans</a
-                >
-              </li>
-              <li>
-                <a href="short-term.html"
-                  ><i class="fas fa-clock"></i> Short Term Plans</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div class="resource-card">
-            <h3>Mobile Apps</h3>
-            <ul>
-              <li>
-                <a href="apps.html"
-                  ><i class="fas fa-mobile-alt"></i> Top 10 Trading Apps</a
-                >
-              </li>
-              <li>
-                <a href="top-ten.html"
-                  ><i class="fas fa-mobile-alt"></i> Top 10 Apps</a
-                >
-              </li>
-            </ul>
-          </div>
+        <div class="resource-card">
+          <h3>Mobile Apps</h3>
+          <ul>
+            <li>
+              <a href="apps.html"><i class="fas fa-mobile-alt"></i> Top 10 Trading Apps</a>
+            </li>
+            <li>
+              <a href="top-ten.html"><i class="fas fa-mobile-alt"></i> Top 10 Apps</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </main>
-    <div class="button-container">
-      <a href="/pages/personalized.html" target="_blank" class="button-link"
-        >For more personalised recommendation</a
-      >
     </div>
+  </main>
+  <div class="button-container">
+    <a href="/pages/personalized.html" target="_blank" class="button-link">For more personalised recommendation</a>
+  </div>
 
-    <footer>
-      <p>&copy; 2024 Stock Market Info & Strategies.</p>
-    </footer>
+  <footer>
+    <p>&copy; 2024 Stock Market Info & Strategies.</p>
+  </footer>
 
-    <script src="../js/auth.js"></script>
-  </body>
+  <script src="../js/auth.js"></script>
+</body>
+
 </html>
