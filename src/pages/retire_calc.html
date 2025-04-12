@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retirement Corpus Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body {
+        background-color: #e0f7f1;
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        transition: background-color 0.3s ease;
+      }
+
+      .dark-mode {
+        background-color: #1a1a1a;
+        color: #f5f5f5;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 60px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .dark-mode .container {
+        background: #2c2c2c;
+      }
+
+      h2 {
+        text-align: center;
+
+        color: #008080;
+      }
+
+      label {
+        font-weight: 600;
+        color: #008080;
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      button {
+        background-color: #008080;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        flex: 1;
+      }
+
+      button:hover {
+        background-color: #006666;
+      }
+
+      .result {
+        margin-top: 20px;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      #chart-container,
+      #line-container {
+        max-width: 500px;
+        margin: 30px auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Retirement Corpus Calculator</h2>
+      <form onsubmit="return calculateRetirement(event)">
+        <label for="currentAge">Current Age:</label>
+        <input type="number" id="currentAge" required min="18" />
+
+        <label for="retirementAge">Retirement Age:</label>
+        <input type="number" id="retirementAge" required min="30" />
+
+        <label for="monthlyExpense">Monthly Expense (₹):</label>
+        <input type="number" id="monthlyExpense" required min="1" />
+
+        <label for="inflation">Expected Inflation Rate (%):</label>
+        <input type="number" id="inflation" required min="0" max="20" />
+
+        <label for="postYears">Years After Retirement:</label>
+        <input type="number" id="postYears" required min="1" max="60" />
+
+        <label for="income"
+          >Expected Monthly Income After Retirement (₹):</label
+        >
+        <input type="number" id="income" required min="0" />
+
+        <div class="buttons">
+          <button type="submit">Calculate</button>
+          <button type="button" onclick="resetForm()">Reset</button>
+          <button type="button" onclick="toggleDarkMode()">
+            Toggle Dark Mode
+          </button>
+        </div>
+      </form>
+      <div class="result" id="result"></div>
+      <div id="chart-container"><canvas id="retireChart"></canvas></div>
+      <div id="line-container"><canvas id="inflationChart"></canvas></div>
+    </div>
+
+    <script>
+      let chart, lineChart;
+
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+      }
+
+      function calculateRetirement(e) {
+        e.preventDefault();
+
+        const currentAge = document.getElementById("currentAge");
+        const retirementAge = document.getElementById("retirementAge");
+        const monthlyExpense = document.getElementById("monthlyExpense");
+        const inflation = document.getElementById("inflation");
+        const postYears = document.getElementById("postYears");
+        const monthlyIncome = document.getElementById("income");
+
+        if (currentAge.value === "" || currentAge.value < 18) {
+          alert("Please enter a valid current age (minimum 18).");
+          currentAge.focus();
+          return false;
+        }
+
+        if (
+          retirementAge.value === "" ||
+          retirementAge.value <= currentAge.value
+        ) {
+          alert("Retirement age must be greater than current age.");
+          retirementAge.focus();
+
+          return false;
+        }
+
+        if (monthlyExpense.value === "" || monthlyExpense.value <= 0) {
+          alert("Please enter a valid monthly expense greater than 0.");
+          monthlyExpense.focus();
+          return false;
+        }
+
+        if (
+          inflation.value === "" ||
+          inflation.value < 0 ||
+          inflation.value > 20
+        ) {
+          alert("Please enter a realistic inflation rate between 0% and 20%.");
+
+          inflation.focus();
+          return false;
+        }
+
+        if (
+          postYears.value === "" ||
+          postYears.value < 1 ||
+          postYears.value > 60
+        ) {
+          alert("Please enter post-retirement years between 1 and 60.");
+          postYears.focus();
+          return false;
+        }
+
+        if (monthlyIncome.value === "" || monthlyIncome.value < 0) {
+          alert("Please enter a valid post-retirement income (0 or more).");
+          monthlyIncome.focus();
+          return false;
+        }
+
+        const ageNow = parseInt(currentAge.value);
+        const ageRetire = parseInt(retirementAge.value);
+        const expense = parseFloat(monthlyExpense.value);
+        const rate = parseFloat(inflation.value);
+        const yearsAfter = parseInt(postYears.value);
+        const income = parseFloat(monthlyIncome.value);
+
+        const yearsToRetirement = ageRetire - ageNow;
+        const inflatedExpense =
+          expense * Math.pow(1 + rate / 100, yearsToRetirement);
+        const adjustedExpense = inflatedExpense - income;
+        const yearlyAdjustedExpense = adjustedExpense * 12;
+        const retirementCorpus = yearlyAdjustedExpense * yearsAfter;
+
+        const formattedCorpus = retirementCorpus.toLocaleString("en-IN", {
+          style: "currency",
+          currency: "INR",
+        });
+
+        const summary = `
+        <p><strong>You have ${yearsToRetirement} years until retirement.</strong></p>
+
+        <p><strong>Expected monthly expense at retirement:</strong> ₹${inflatedExpense.toFixed(2)}</p>
+        <p><strong>After adjusting for post-retirement income (₹${income}),</strong></p>
+        <p><strong>Total Corpus Required:</strong> ${formattedCorpus}</p>
+        <p>To maintain your lifestyle for ${yearsAfter} years after retirement, you'll need this corpus by age ${ageRetire}.</p>
+      `;
+
+        document.getElementById("result").innerHTML = summary;
+
+        const ctx = document.getElementById("retireChart").getContext("2d");
+        if (chart) chart.destroy();
+        chart = new Chart(ctx, {
+          type: "doughnut",
+          data: {
+            labels: ["Required Corpus", "Income Covered"],
+            datasets: [
+              {
+                label: "Corpus Breakdown",
+                data: [retirementCorpus, income * 12 * yearsAfter],
+                backgroundColor: ["#20B2AA", "#ccc"],
+
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            plugins: { legend: { position: "bottom" } },
+          },
+        });
+
+        const years = Array.from(
+          { length: yearsToRetirement + 1 },
+          (_, i) => ageNow + i,
+        );
+        const expenses = years.map(
+          (_, i) => expense * Math.pow(1 + rate / 100, i),
+        );
+        const lctx = document.getElementById("inflationChart").getContext("2d");
+        if (lineChart) lineChart.destroy();
+        lineChart = new Chart(lctx, {
+          type: "line",
+          data: {
+            labels: years,
+            datasets: [
+              {
+                label: "Inflation-Adjusted Monthly Expense",
+                data: expenses,
+
+                borderColor: "#008080",
+                backgroundColor: "rgba(0,128,128,0.1)",
+                fill: true,
+                tension: 0.3,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: "top" },
+              tooltip: {
+                callbacks: { label: (ctx) => `₹${ctx.raw.toFixed(2)}` },
+              },
+            },
+            scales: {
+              y: { ticks: { callback: (val) => `₹${val}` } },
+            },
+          },
+        });
+      }
+
+      function resetForm() {
+        document.querySelector("form").reset();
+        document.getElementById("result").innerHTML = "";
+
+        if (chart) chart.destroy();
+
+        if (lineChart) lineChart.destroy();
+      }
+    </script>
+  </body>
+</html>
