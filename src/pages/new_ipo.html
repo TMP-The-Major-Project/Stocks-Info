@@ -4,57 +4,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Market Indices Guide - Stock Market</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+  <title>IPO Alert</title>
   <style>
     body {
-      font-family: "Poppins", sans-serif;
-
-      background-color: #f9f9f9;
+      font-family: Arial, sans-serif;
+      background-color: white;
       margin: 0;
+
       padding: 0;
     }
 
     .navbar {
       background-color: #008080;
-
       padding: 2rem 3rem;
       display: flex;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    .nav-brand a,
-    .nav-links a {
-      color: #fff;
+    .nav-links {
+      display: flex;
 
-      text-decoration: none;
-
-      font-weight: 500;
+      gap: 2rem;
+      align-items: center;
     }
 
     .nav-brand a {
       font-size: 1.5rem;
       font-weight: 700;
-
       color: #ffffff;
-
       text-decoration: none;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
+    .nav-links a {
+      color: #ffffff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
     }
 
     .container {
-      max-width: 1000px;
-      margin: 80px auto;
+      background-color: #b3d9d9;
+      max-width: 2000px;
+
       padding: 30px;
       background: #b3d9d9;
 
@@ -62,137 +55,66 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .indices-header {
-      background: #f8f9fa;
+    .nav-links a:hover {
+      color: var#008080;
+    }
 
+    main {
       padding: 2rem;
+    }
 
-      border-radius: 10px;
-      text-align: center;
+    section {
       margin-bottom: 2rem;
-    }
-
-    .indices-header h1 {
-      color: #008080;
-      margin-bottom: 1rem;
-      font-weight: bold;
-    }
-
-    .positive-change {
-      color: green;
-      font-weight: bold;
-    }
-
-    .negative-change {
-      color: red;
-      font-weight: bold;
-    }
-
-    .content-section {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      margin-bottom: 2rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      font-weight: bold;
-    }
-
-    .info-box {
-      background: #f8f9fa;
-      border-left: 4px solid #008080;
-      padding: 1rem;
-      margin: 1rem 0;
-    }
-
-    .info-box h4 {
-      color: #2c3e50;
-
-      margin-bottom: 0.5rem;
-    }
-
-    .info-box p {
-      color: #666;
-      margin: 0;
     }
 
     h2 {
-      color: #2c3e50;
-      margin-bottom: 1.5rem;
-      border-bottom: 2px solid #008080;
+      color: #008080;
+      border-bottom: 2px solid #ccc;
       padding-bottom: 0.5rem;
     }
 
-    p,
-    li,
-    span {
-      color: #666;
-      line-height: 1.6;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .buttons button {
-      background-color: #008080;
-      color: white;
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .buttons button:hover {
-      background-color: #20b2aa;
-    }
-
-    .table-container {
-      display: none;
-      animation: fadeIn 1s;
-    }
-
-    table {
+    .ipo-table {
       width: 100%;
+
       border-collapse: collapse;
-      margin-top: 20px;
-      background: #f8f9fa;
     }
 
-    th,
-    td {
-      padding: 12px;
-
-      border: 1px solid #ddd;
+    .ipo-table th,
+    .ipo-table td {
+      border: 1px solid #ccc;
+      padding: 10px;
       text-align: center;
     }
 
-    th {
-      background-color: #008080;
+    .ipo-table th {
+      background-color: #0d1b2a;
       color: white;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .loader {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      color: #666;
     }
 
     .footer {
       background-color: #008080;
       color: white;
+
       padding: 3rem 5% 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav-links a {
+        margin: 5px 0;
+      }
     }
   </style>
 </head>
@@ -203,14 +125,12 @@
       <div class="nav-brand">
         <a href="../index.html">Stock Market</a>
       </div>
-
       <div class="nav-links">
         <a href="../index.html">Home</a>
         <a href="watchlist.html" class="active">Watchlist</a>
         <a href="resources.html">Resources</a>
         <a href="returns-calculator.html">Returns Calculator</a>
         <a href="about.html">About</a>
-
         <a href="contact.html">Contact</a>
         <a href="team.html">Team</a>
         <a href="login.html" class="login-btn">Login</a>
@@ -219,278 +139,107 @@
   </header>
 
   <main>
-    <div class="indices-header">
-      <h1>Market Indices Guide</h1>
-      <p style="font-weight: bold">
-        Learn about stock market indices, their types, importance, and how
-        they reflect market performance.
-      </p>
-    </div>
-
-    <div class="container">
-      <div class="content-section">
-        <h2>Understanding Market Indices</h2>
-        <p>
-          Market indices are statistical measures that track the performance
-          of a specific group of stocks, representing a particular market or
-          sector.
+    <section>
+      <div></div>
+      <h2>Learn About IPOs</h2>
+      <div>
+        <p class="container">
+          An Initial Public Offering (IPO) marks a company's first sale of
+          stock to the public. Companies often issue IPOs to raise capital for
+          expansion, pay off debt, or allow early investors to cash out. Stay
+          informed to make better investment decisions!
         </p>
       </div>
+      <br />
 
-      <div class="content-section">
-        <h2>Major Market Indices</h2>
-        <div class="info-box">
-          <h4>S&P 500</h4>
-          <p>
-            Measures the performance of 500 large companies listed on US stock
-            exchanges.
-          </p>
-        </div>
-        <div class="info-box">
-          <h4>Dow Jones Industrial Average</h4>
-          <p>
-            Tracks 30 large, publicly-owned companies trading on the NYSE and
-            NASDAQ.
-          </p>
-        </div>
-        <div class="info-box">
-          <h4>NASDAQ Composite</h4>
-          <p>Includes all stocks listed on the NASDAQ stock market.</p>
-        </div>
-        <div class="info-box">
-          <h4>FTSE 100</h4>
+      <h2>Upcoming IPOs</h2>
 
-          <p>
-            Index of the 100 largest companies listed on the London Stock
-            Exchange.
-          </p>
-        </div>
-      </div>
+      <p>Fetching live IPO data for you...</p>
+      <div class="loader" id="loader">Loading IPOs...</div>
+      <table class="ipo-table" id="ipoTable">
+        <thead>
+          <tr>
+            <th>Company Name</th>
+            <th>Symbol</th>
+            <th>Exchange</th>
+            <th>Price</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- IPO data will be inserted here -->
+        </tbody>
+      </table>
+    </section>
 
-      <div class="content-section">
-        <h2>Types of Indices</h2>
-
-        <div class="buttons">
-          <button id="indianBtn">Indian Indices</button>
-          <button id="globalBtn">Global Indices</button>
-        </div>
-
-        <div id="indianTable" class="table-container">
-          <header>
-            <h3>Indian Indices</h3>
-          </header>
-
-          <table>
-            <thead>
-              <tr>
-                <th>Index Name</th>
-                <th>Last Traded</th>
-                <th>Day Change</th>
-                <th>High</th>
-                <th>Low</th>
-                <th>Open</th>
-
-                <th>Prev. Close</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>NIFTY 50</td>
-
-                <td>23,092.20</td>
-                <td class="negative-change">-263.05 (1.14%)</td>
-                <td>23,007.45</td>
-                <td>22,786.90</td>
-                <td>23,183.90</td>
-                <td>23,092.20</td>
-              </tr>
-              <tr>
-                <td>NIFTY Bank</td>
-                <td>48,064.65</td>
-                <td class="negative-change">-303.15 (0.63%)</td>
-                <td>48,319.20</td>
-                <td>47,844.15</td>
-                <td>47,881.65</td>
-
-                <td>48,367.80</td>
-              </tr>
-              <tr>
-                <td>FINNIFTY</td>
-
-                <td>22,383.10</td>
-                <td class="negative-change">-130.40 (0.58%)</td>
-                <td>22,494.20</td>
-                <td>22,320.85</td>
-                <td>22,357.40</td>
-                <td>22,513.50</td>
-              </tr>
-              <tr>
-                <td>BSE Sensex</td>
-                <td>75,366.17</td>
-                <td class="negative-change">-824.29 (1.08%)</td>
-                <td>75,925.72</td>
-                <td>75,267.59</td>
-                <td>75,700.43</td>
-                <td>76,190.46</td>
-              </tr>
-              <tr>
-                <td>India VIX</td>
-                <td>18.13</td>
-                <td class="positive-change">+1.38 (8.24%)</td>
-                <td>18.52</td>
-                <td>16.12</td>
-                <td>16.70</td>
-                <td>16.75</td>
-              </tr>
-              <tr>
-                <td>NIFTY Total Market</td>
-                <td>11,777.60</td>
-                <td class="negative-change">-236.75 (1.97%)</td>
-
-                <td>11,924.85</td>
-                <td>11,748.05</td>
-                <td>11,922.20</td>
-                <td>12,014.35</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div id="globalTable" class="table-container">
-          <header>
-            <h3>Global Indices</h3>
-          </header>
-          <table>
-            <thead>
-              <tr>
-                <th>Index Name</th>
-                <th>Last Traded</th>
-                <th>Day Change</th>
-                <th>High</th>
-                <th>Low</th>
-                <th>Open</th>
-                <th>Prev. Close</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>GIFT NIFTY</td>
-                <td>23,131.00</td>
-                <td class="positive-change">0.00 (0.00%)</td>
-                <td>23,372.00</td>
-                <td>23,069.00</td>
-                <td>23,302.50</td>
-                <td>23,131.00</td>
-              </tr>
-              <tr>
-                <td>Dow Futures</td>
-                <td>44,371.00</td>
-                <td class="negative-change">-194.30 (0.44%)</td>
-                <td>44,578.00</td>
-                <td>44,335.00</td>
-                <td>44,515.50</td>
-                <td>44,565.30</td>
-              </tr>
-              <tr>
-                <td>NASDAQ</td>
-                <td>19,959.30</td>
-                <td class="negative-change">-99.38 (0.50%)</td>
-                <td>20,123.61</td>
-                <td>19,902.13</td>
-                <td>20,092.10</td>
-                <td>20,058.68</td>
-              </tr>
-              <tr>
-                <td>Dow</td>
-                <td>44,429.25</td>
-                <td class="negative-change">-140.82 (0.32%)</td>
-                <td>44,550.52</td>
-                <td>44,337.22</td>
-                <td>44,538.80</td>
-                <td>44,570.07</td>
-              </tr>
-              <tr>
-                <td>S&P</td>
-                <td>6,144.00</td>
-                <td class="negative-change">-20.00 (0.32%)</td>
-                <td>6,174.25</td>
-
-                <td>6,134.00</td>
-                <td>6,160.00</td>
-
-                <td>6,164.00</td>
-              </tr>
-              <tr>
-                <td>NIKKEI</td>
-                <td>39,931.98</td>
-                <td class="negative-change">-26.89 (0.07%)</td>
-                <td>40,279.79</td>
-                <td>39,806.69</td>
-                <td>40,060.49</td>
-                <td>39,958.87</td>
-              </tr>
-
-              <tr>
-                <td>HANG SENG</td>
-                <td>20,066.19</td>
-                <td class="positive-change">+365.63 (1.86%)</td>
-                <td>20,144.00</td>
-                <td>19,768.13</td>
-                <td>19,842.85</td>
-                <td>19,700.56</td>
-              </tr>
-              <tr>
-                <td>DAX</td>
-                <td>21,394.93</td>
-
-                <td class="negative-change">-16.60 (0.08%)</td>
-                <td>21,520.50</td>
-                <td>21,353.01</td>
-                <td>21,463.15</td>
-                <td>21,411.53</td>
-              </tr>
-              <tr>
-                <td>FTSE</td>
-                <td>8,502.35</td>
-                <td class="negative-change">-62.85 (0.73%)</td>
-                <td>8,586.68</td>
-                <td>8,492.73</td>
-                <td>8,565.20</td>
-                <td>8,565.20</td>
-              </tr>
-              <tr>
-                <td>CAC</td>
-                <td>7,927.62</td>
-                <td class="positive-change">+35.01 (0.44%)</td>
-                <td>7,988.85</td>
-                <td>7,904.17</td>
-                <td>7,958.92</td>
-                <td>7,892.61</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+    <section></section>
   </main>
 
-  <footer class="footer">
-    <p style="color: white">&copy; 2024 Stock Market Info & Strategies.</p>
-  </footer>
   <script>
-    $(document).ready(function () {
-      $("#indianBtn").click(function () {
-        $("#globalTable").fadeOut(300, function () {
-          $("#indianTable").fadeIn(500);
-        });
-      });
-      $("#globalBtn").click(function () {
-        $("#indianTable").fadeOut(300, function () {
-          $("#globalTable").fadeIn(500);
-        });
-      });
-    });
+    const apiKey = "cvsl5j1r01qhup0rfvqgcvsl5j1r01qhup0rfvr0"; // <-- Replace this with your real API key!
+
+    async function fetchIPOs() {
+      const today = new Date();
+
+      // Calculate 1 year back
+      const lastYear = new Date(today);
+      lastYear.setFullYear(today.getFullYear() - 1);
+
+      // Calculate 1 year ahead
+      const nextYear = new Date(today);
+
+      nextYear.setFullYear(today.getFullYear() + 1);
+
+      // Format to yyyy-mm-dd
+      const fromDate = lastYear.toISOString().split("T")[0];
+      const toDate = nextYear.toISOString().split("T")[0];
+
+      const url = `https://finnhub.io/api/v1/calendar/ipo?from=${fromDate}&to=${toDate}&token=${apiKey}`;
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+
+        const loader = document.getElementById("loader");
+        const ipoTableBody = document.querySelector("#ipoTable tbody");
+        loader.style.display = "none"; // Hide loader
+
+        ipoTableBody.innerHTML = "";
+
+        if (data && data.ipoCalendar && data.ipoCalendar.length > 0) {
+          data.ipoCalendar.forEach((ipo) => {
+            const row = `
+                            <tr>
+                                <td>${ipo.name || "N/A"}</td>
+                                <td>${ipo.symbol || "N/A"}</td>
+                                <td>${ipo.exchange || "N/A"}</td>
+                                <td>${ipo.price || "N/A"}</td>
+                                <td>${ipo.date || "N/A"}</td>
+                            </tr>
+                        `;
+            ipoTableBody.innerHTML += row;
+          });
+        } else {
+          ipoTableBody.innerHTML =
+            '<tr><td colspan="5">No IPOs found!</td></tr>';
+        }
+      } catch (error) {
+        console.error("Error fetching IPOs:", error);
+        const loader = document.getElementById("loader");
+
+        const ipoTableBody = document.querySelector("#ipoTable tbody");
+        loader.style.display = "none";
+        ipoTableBody.innerHTML =
+          '<tr><td colspan="5">Failed to load IPOs.</td></tr>';
+      }
+    }
+
+    fetchIPOs();
   </script>
+  <footer class="footer">
+    <p>&copy; 2024 Stock Market Info & Strategies.</p>
+  </footer>
 </body>
 
 </html>
